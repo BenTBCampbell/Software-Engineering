@@ -25,6 +25,10 @@ A fun phone app where people can make up definitions for words that don't exist.
   - Aaron Bangs - abangs001@student.franciscan.edu
   - John Wuller - jwuller001@student.franciscan.edu
   - Kevin Marr - kmarr001@student.franciscan.edu
+  - Joey Casey - jcasey001@student.franciscan.edu
+  - Susanna Naaden - snaaden002@student.franciscan.edu
+  - Alex Fortman - afortman001@student.franciscan.edu
+  - Theresa Geiger - tgeiger001@student.franciscan.edu
 
 ### Calendar
 #### February

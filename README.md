@@ -29,6 +29,7 @@ A fun phone app where people can make up definitions for words that don't exist.
   - Susanna Naaden - snaaden002@student.franciscan.edu
   - Alex Fortman - afortman001@student.franciscan.edu
   - Theresa Geiger - tgeiger001@student.franciscan.edu
+  -Jensey Clement - jclement001@student.franciscan.edu
 
 ### Calendar
 #### February

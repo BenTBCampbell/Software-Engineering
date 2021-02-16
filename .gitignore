@@ -1,0 +1,3 @@
+# To ignore temporary microsoft office files:
+~$*
+*.tmp

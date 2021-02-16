@@ -30,6 +30,7 @@ A fun phone app where people can make up definitions for words that don't exist.
   - Alex Fortman - afortman001@student.franciscan.edu
   - Theresa Geiger - tgeiger001@student.franciscan.edu
   - Jensey Clement - jclement001@student.franciscan.edu
+  - Francie Mehl - fmehl001@student.franciscan.edu
 
 ### Calendar
 #### February

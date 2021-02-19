@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "47529RgqhKcAZUXGJGVfzacv2qZCodLGsEcjh00HQ5jeh/3NV49X6avkbdCICa64oUQoQsFZwRCI6UvzcM+x9A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\usa4c\\source\\repos\\BenTBCampbell\\Software-Engineering\\Fake Word Dictionary\\Fake Word Dictionary\\Fake Word Dictionary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\usa4c\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\usa4c\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\usa4c\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}

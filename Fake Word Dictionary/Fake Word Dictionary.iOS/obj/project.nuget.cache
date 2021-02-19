@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "uel0B+lXQ0lgu7mvnQAoTTpMQscDOqpdLBSClHczWj0dg1kPgG1KaT/24x5FwL8zlxL5KsR8PtYZi5E4rcJ1rQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\usa4c\\source\\repos\\BenTBCampbell\\Software-Engineering\\Fake Word Dictionary\\Fake Word Dictionary.iOS\\Fake Word Dictionary.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\4.8.0.1451\\xamarin.forms.4.8.0.1451.nupkg.sha512"
+  ],
+  "logs": []
+}

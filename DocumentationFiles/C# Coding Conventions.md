@@ -121,7 +121,7 @@ int[] numbers = { 2, 3, 4, 5 };
 var squaredNumbers = numbers.Select(x => x * x);
 ```
 ### Exception Handling
-* Use try, catch for exception handling.
+* Use `try...catch` for exception handling.
 * <strong>Do not use the sole keyword `catch` or `catch (Exception ex)`; only catch specific exceptions which you know how to handle.</strong>
 ```c#
 try {

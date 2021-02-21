@@ -190,6 +190,6 @@ var orders =
 var vehiclesQuery =
     from manufacturer in manufacturers
     from vehicle in vehicles
-    where vehicle.Manufacturer=="Ford"
-    select new { MPG = vehicle.MPG, Manufacturer=="Ford", vehicle };
+    where vehicle.Manufacturer == "Ford"
+    select new { MPG = vehicle.MPG, Manufacturer = "Ford", vehicle };
 ```

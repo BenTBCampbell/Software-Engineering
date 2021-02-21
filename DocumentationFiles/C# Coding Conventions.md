@@ -132,8 +132,7 @@ catch (StarterException ex)
     Console.WriteLine($"The starter is not working correctly.\n{ex.Message}");
 }
 ```
-* If you need to dispose objects, use a `using` statement instead of calling `Dispose()` in the `finally` clause of a `try...catch` statement.
-
+* If you need to dispose objects, do not call `Dispose()` in the `finally` clause of a `try...catch` statement. Instead, use a `using` statement:
 ```c#
 using (StreamReader reader = new StreamReader("file.txt"));
 {

@@ -100,9 +100,10 @@ string[] words = {"I", "am", "the", "Way"};
 ### Delegates
 * Use the concise syntax for delegates:
 ```c#
+// Delegate--encapsulates method with string argument
 public delegate void PrintDelegate (string message);
 
-// Delegate with matching signature
+// Matching method, which we will set our delegate to
 public static void PrintMethod(string message)
 {
     Console.WriteLine($"Printing: {message}");
@@ -121,7 +122,7 @@ var squaredNumbers = numbers.Select(x => x * x);
 ```
 ### Exception Handling
 * Use try, catch for exception handling.
-* DO NOT use the the sole keyword `catch` or `catch (Exception ex)`; only catch specific exceptions which you know how to handle.
+* <strong>Do not use the the sole keyword `catch` or `catch (Exception ex)`; only catch specific exceptions which you know how to handle.</strong>
 ```c#
 try {
     StartEngine();
@@ -141,7 +142,7 @@ using (StreamReader reader = new StreamReader("file.txt"));
 ```
 
 ### Operators
-* Use the shortcut operators `|` and `&` when performing comparisons, to increase performance and avoid errors.
+* Use the shortcut operators `||` and `&&` when performing comparisons, rather than `|` and `&`, to increase performance and avoid errors.
 * When initializing new classes, use explicit typing, especially if the class name is complicated.
 * Use object initializers when creating objects:
 
@@ -157,7 +158,7 @@ vehicle.Manufacturer = "Ford";
 vehicle.ModelName = "Fiesta";
 ```
 ### Event Handling
-* Use lambda expressions when defining event handlers, unless you need to remove it later.
+* Use lambda expressions when defining event handlers, unless they will need to be removed later.
 ```c#
 public NumericUpDown()
 {
@@ -174,7 +175,7 @@ Vehicle.Go();
 ### LINQ Queries
 * Use meaningful names for query variables.
 * Make sure property names are not ambiguous.
-* Use aliases so that the property names are capitalized like they should be, with camel casing:
+* Use aliases so that the property names are capitalized like they should be, with CamelCasing:
 ```c#
 var orders =
     from vehicle in vehicles
@@ -182,14 +183,14 @@ var orders =
     select new { Customer = customer, Vehicle = vehicle };
 ```
 * Use implicit typing (`var` is not needed here, either.)
-* Make sure that queries are formatted so that every new line is indented, and placed just below from, like the example above.
+* Make sure that queries are formatted so that every new line is indented, and placed just below `from`, like the example above.
 * Use `where` clauses before any other clauses (except `from`, of course) so the filtering results are accurate.
-* For inner collections, a join is not required. Instead, use two `from` clauses.
+* For inner collections, `join` is not required. Instead, use two `from` clauses.
 
 ```c#
 var vehiclesQuery =
     from manufacturer in manufacturers
     from vehicle in vehicles
     where vehicle.Manufacturer == "Ford"
-    select new { MPG = vehicle.MPG, Manufacturer = "Ford", vehicle };
+    select new { MPG = vehicle.MPG, Manufacturer = "Ford", Vehicle = vehicle };
 ```

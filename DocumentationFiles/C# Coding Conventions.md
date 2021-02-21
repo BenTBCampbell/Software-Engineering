@@ -104,8 +104,7 @@ string[] words = {"I", "am", "the", "Way"};
 public delegate void PrintDelegate (string message);
 
 // Matching method, which we will set our delegate to
-public static void PrintMethod(string message)
-{
+public static void PrintMethod(string message) {
     Console.WriteLine($"Printing: {message}");
 }
 
@@ -127,15 +126,13 @@ var squaredNumbers = numbers.Select(x => x * x);
 try {
     StartEngine();
 }
-catch (StarterException ex)
-{
+catch (StarterException ex) {
     Console.WriteLine($"The starter is not working correctly.\n{ex.Message}");
 }
 ```
 * If you need to dispose objects, do not call `Dispose()` in the `finally` clause of a `try...catch` statement. Instead, use a `using` statement:
 ```c#
-using (StreamReader reader = new StreamReader("file.txt"));
-{
+using (StreamReader reader = new StreamReader("file.txt")); {
     reader.ReadToEnd();
 }
 ```
@@ -159,8 +156,7 @@ vehicle.ModelName = "Fiesta";
 ### Event Handling
 * Use lambda expressions when defining event handlers, unless they will need to be removed later.
 ```c#
-public NumericUpDown()
-{
+public NumericUpDown() {
     this.ValueChanged += new EventHandler(NumericUpDown1_ValueChanged);
 }
 ```

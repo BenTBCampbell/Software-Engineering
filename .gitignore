@@ -1,3 +1,8 @@
 # To ignore temporary microsoft office files:
 ~$*
 *.tmp
+
+Fake\ Word\ Dictionary/.vs/
+Fake Word Dictionary/Fake Word Dictionary.Android/obj/
+Fake Word Dictionary/Fake Word Dictionary.iOS/obj/
+Fake Word Dictionary/obj/

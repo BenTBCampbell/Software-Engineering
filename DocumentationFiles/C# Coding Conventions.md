@@ -1,6 +1,6 @@
 # C# Coding Conventions
 
-The following are conventions that we want to try to stick to as a development team. Please try to follow them whenever possible. If you have any questions or concerns, please ask Christopher Centrella.
+The following are conventions that we want to try to stick to as a development team. Please try to follow them whenever possible. If you have any questions or concerns, please ask Chris Centrella.
 
 ## Naming Conventions
 * For field names, start with a lowercase letter, and use camelCasing.
@@ -18,7 +18,7 @@ bool StartEngine() {
 
 }
 ```
-* If a namespace is going to be used more than once in a code file, import the namespace--unless it is already imported. To do this, add a `using` statement, followed by the namespace, and place this at the beginning of the document.
+* If a namespace is going to be used more than once in a code file, import the namespace&mdash;unless it is already imported. To do this, add a `using` statement, followed by the namespace, and place this at the beginning of the document.
 ```c#
 using System.Diagnostics;
 ```
@@ -28,7 +28,7 @@ using System.Diagnostics;
 * Write only one statement per line.
 * Write only one declaration per line, unless you are declaring multiple variables of the same data type and not initializing them.
 * Add at least one blank line between method and property definitions.
-* Use parentheses to make clauses apparent when necessary, and also use braces in the expression body at all times.
+* Use parentheses to make clauses apparent if necessary, and also use braces in the expression body at all times.
 
 ```c#
 if ((modelNumber == "V293234923023") && (modelYear > 2005)) {
@@ -57,16 +57,15 @@ bool StartEngine();
 * Use the new string <a target="_blank" href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated">interpolation</a> feature to concatenate short strings:
 
 ```c#
-string displayName = $"{nameList[n].LastName}, {nameList[n].FirstName}";
+Console.WriteLine($"The starter is not working correctly.\n{ex.Message}");
 ```
 
 * To append strings in loops, use a <a target="_blank" href="https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder">StringBuilder</a>.
 ```c#
-var phrase = "lalalalalalalalalalalalalalalalalalalalalalalalalalalalalala";
-var manyPhrases = new StringBuilder();
-for (var i = 0; i < 10000; i++)
-{
-    manyPhrases.Append(phrase);
+var series = new StringBuilder();
+var phrase = "I am the Way, the Truth, and the Life";
+for (int i = 0; i < phrase.Length; i++) {
+    series.Append(phrase[i])
 }
 ```
 ### Implicit Typing
@@ -74,24 +73,20 @@ for (var i = 0; i < 10000; i++)
 
 
 ```c#
-var string1 = "Hello World";
+var string1 = "Welcome! Please enter your name and press ENTER.";
 ```
 * In `foreach` loops, do not use implicit typing, though you can in `for` loops.
 
 ```c#
-for (var i = 0; i < 10000; i++)
-{
-    manyPhrases.Append(phrase);
+var series = new StringBuilder();
+var phrase = "I am the Way, the Truth, and the Life";
+for (int i = 0; i < phrase.Length; i++) {
+    series.Append(phrase[i])
 }
 
-foreach (char ch in laugh)
-{
-    if (ch == 'h')
-        Console.Write("H");
-    else
-        Console.Write(ch);
+foreach (char ch in phrase) {
+   series.Append(ch);
 }
-Console.WriteLine();
 ```
 
 ### Unsigned Data Types
@@ -100,18 +95,22 @@ Console.WriteLine();
 ### Arrays
 * For initializing arrays, please use the following format, i.e., explicitly typed and without a `new` statement:
 ```c#
-string[] vowels1 = { "a", "e", "i", "o", "u" };
+string[] words = {"I", "am", "the", "Way"};
 ```
 ### Delegates
 * Use the concise syntax for delegates:
 ```c#
-// We have already created a delegate type Del and its matching method DelMethod, which are not shown here.
+public delegate void PrintDelegate (string message);
 
-// Preferred: Create an instance of Del by using condensed syntax.
-Del exampleDel2 = DelMethod;
+// Delegate with matching signature
+public static void PrintMethod(string message)
+{
+    Console.WriteLine($"Printing: {message}");
+}
 
-// The following declaration uses the full syntax.
-Del exampleDel1 = new Del(DelMethod);
+// We can create a delegate implicitly by setting the method equal to the delegate,
+// without using a new statement or mentioning the name of the delegate again.
+PrintDelegate del = PrintMethod;
 ```
 
 * Use lambda expressions whenever possible.
@@ -132,12 +131,12 @@ catch (StarterException ex)
     Console.WriteLine($"The starter is not working correctly.\n{ex.Message}");
 }
 ```
-* If you need to dispose objects, use a using statement instead of calling Dispose in the `finally `clause of a try catch statement.
+* If you need to dispose objects, use a `using` statement instead of calling `Dispose()` in the `finally` clause of a `try...catch` statement.
 
 ```c#
-using (Font font2 = new Font("Arial", 10.0f))
+using (StreamReader reader = new StreamReader("file.txt"));
 {
-    byte charset = font2.GdiCharSet;
+    reader.ReadToEnd();
 }
 ```
 
@@ -160,14 +159,14 @@ vehicle.ModelName = "Fiesta";
 ### Event Handling
 * Use lambda expressions when defining event handlers, unless you need to remove it later.
 ```c#
-public Form1()
+public NumericUpDown()
 {
-    this.Click += new EventHandler(Form1_Click);
+    this.ValueChanged += new EventHandler(NumericUpDown1_ValueChanged);
 }
 ```
 
 ### Static Members
-* When calling static members, include the name of the <strong>base</strong> class.
+* When calling static members, include the class name. Be sure to use the name of the base class and not the derived class, unless the member is specifically defined in the derived class.
 ```c#
 Vehicle.Go();
 ```
@@ -177,10 +176,10 @@ Vehicle.Go();
 * Make sure property names are not ambiguous.
 * Use aliases so that the property names are capitalized like they should be, with camel casing:
 ```c#
-var localDistributors =
-    from customer in customers
-    join distributor in distributors on customer.City equals distributor.City
-    select new { Customer = customer, Distributor = distributor };
+var orders =
+    from vehicle in vehicles
+    join customer in customers on vehicle.OrderID equals customer.OrderID
+    select new { Customer = customer, Vehicle = vehicle };
 ```
 * Use implicit typing (`var` is not needed here, either.)
 * Make sure that queries are formatted so that every new line is indented, and placed just below from, like the example above.
@@ -188,8 +187,9 @@ var localDistributors =
 * For inner collections, a join is not required. Instead, use two `from` clauses.
 
 ```c#
-var scoreQuery = from student in students
-                 from score in student.Scores
-                 where score > 90
-                 select new { Last = student.LastName, score };
+var vehiclesQuery =
+    from manufacturer in manufacturers
+    from vehicle in vehicles
+    where vehicle.Manufacturer=="Ford"
+    select new { MPG = vehicle.MPG, Manufacturer=="Ford", vehicle };
 ```

@@ -122,7 +122,7 @@ var squaredNumbers = numbers.Select(x => x * x);
 ```
 ### Exception Handling
 * Use try, catch for exception handling.
-* <strong>Do not use the the sole keyword `catch` or `catch (Exception ex)`; only catch specific exceptions which you know how to handle.</strong>
+* <strong>Do not use the sole keyword `catch` or `catch (Exception ex)`; only catch specific exceptions which you know how to handle.</strong>
 ```c#
 try {
     StartEngine();

@@ -15,6 +15,8 @@ last updated: Feb 15, 2021
   - [ ] Name/Logo
   - [ ] A way to display Notifications
   - [ ] Efficient searching in the background
+  - [ ] Modifying definitions/comments you made
+  - [ ] Admins deleting/modifying defintions/comments
 ### 3. Optional
   - [ ] Word of the Day
   - [ ] Upvoting Words

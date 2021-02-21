@@ -2,6 +2,12 @@
 
 A fun phone app where people can make up definitions for words that don't exist.
 
+### Cloning Help
+If you get the error **file name too long** while trying to clone or pull the projcet, run this command:
+```
+git config --system core.longpaths true
+```
+
 ### Basic Overview
 - **Name**: Oxword Fictionary
 - **App Framework**: Xamarian

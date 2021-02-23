@@ -1,5 +1,7 @@
 Welcome to Xamarin.Forms! Here are some tips to get started building your app.
 
+Ben was here.
+
 Building Your App UI
 --------------------
 

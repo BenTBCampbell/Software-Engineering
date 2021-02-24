@@ -13,7 +13,7 @@ See also [this article](https://docs.microsoft.com/en-us/xamarin/android/get-sta
 
 ## [Installing HAXM (Intel Processors)](https://software.intel.com/content/www/us/en/develop/videos/setting-up-intel-haxm-on-windows.html)
 
-1. Run the following command to see if virtualization is enabled. If not, you may have to change the setting in the BIOS.
+1. Open a command prompt and run the following command to see if virtualization is enabled. If not, you may have to change the setting in the BIOS.
 
 ```systeminfo```
 
@@ -23,7 +23,7 @@ See also [this article](https://docs.microsoft.com/en-us/xamarin/android/get-sta
 
 ## [Installing Emulator for AMD Processors](https://software.intel.com/content/www/us/en/develop/videos/setting-up-intel-haxm-on-windows.html)
 
-1. Run the following command to see if virtualization is enabled. If not, you may have to change the setting in the BIOS.
+1. Open a command prompt and run the following command to see if virtualization is enabled. If not, you may have to change the setting in the BIOS.
 
 ```systeminfo```
 
@@ -37,17 +37,15 @@ See also [this article](https://docs.microsoft.com/en-us/xamarin/android/get-sta
 2. Be sure to select an x86 system image. Selected an ARM-based system image (x64) will cause the system to run much slower. You can also the x86_64, if you want to test 64-bit apps, but it will be slightly slower.
 3. If you wish, [set the properties to their desired values](https://docs.microsoft.com/en-us/xamarin/android/get-started/installation/android-emulator/device-properties?pivots=windows).
 
-<div style="background:darkorange; color:white; padding: 10px; margin-bottom:10px; border-radius: 7px">
-<p><strong>Warning!</strong></p>
-<p>HAXM will not function with more than 4,095 MB of RAM, so make sure the RAM for the emulator is <strong>less</strong> than 4 GB.</p>
-</div>
+<strong>Warning!</strong>
 
-3. Click Okay. If the image is not on your computer, it will be downloaded.
+HAXM will not function with more than 4,095 MB of RAM, so make sure the RAM for the emulator is <strong>less</strong> than 4 GB.
 
-<div style="background:gray; color:white; padding: 10px; margin-bottom:10px; border-radius: 7px">
-<p><strong>Information</strong></p>
-<p>The first time the emulator loads it will initialize. This will only happen the first time, since it saves the state.</p>
-</div>
+4. Click Okay. If the image is not on your computer, it will be downloaded.
+
+<strong>Information:</strong>
+
+The first time the emulator loads it will initialize. This will only happen the first time, since it saves the state.
 
 ## [Troubleshooting](https://docs.microsoft.com/en-us/xamarin/android/get-started/installation/android-emulator/troubleshooting?pivots=windows)
 
@@ -56,9 +54,7 @@ See also [this article](https://docs.microsoft.com/en-us/xamarin/android/get-sta
 
 ```"C:\Program Files (x86)\Android\android-sdk\emulator\emulator-check.exe" accel```
 
-If it says HAXM is installed and useable, hardware acceleration via HAXM is working correctly.
-
-Otherwise, you can also type `sc query intelhaxm` to see if HAXM is installed. If it does not say `RUNNING` it is not installed.
+If it says HAXM is installed and useable, hardware acceleration via HAXM is working correctly. Otherwise, you can also type `sc query intelhaxm` to see if HAXM is installed. If it does not say `RUNNING` it is not installed.
 
 * <strong>Use x86 Architecture.</strong> Make sure your Android Virtual Device system image is set to x86.
 * <strong>Don't power off the phone.</strong> Once you're done, click the X button or click Stop Debugging in the Visual Studio IDE.

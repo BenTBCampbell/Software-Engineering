@@ -6,17 +6,43 @@
              Title="New Item"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="true">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="Resources.xaml" />
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <StackLayout Spacing="3" Padding="15">
-            <Label Text="Text" FontSize="Medium" />
-            <Entry Text="{Binding Text, Mode=TwoWay}" FontSize="Medium" />
-            <Label Text="Description" FontSize="Medium" />
-            <Editor Text="{Binding Description, Mode=TwoWay}" AutoSize="TextChanges" FontSize="Medium" Margin="0" />
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Cancel" Command="{Binding CancelCommand}" HorizontalOptions="FillAndExpand"></Button>
-                <Button Text="Save" Command="{Binding SaveCommand}" HorizontalOptions="FillAndExpand"></Button>
+        <Grid Padding="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition  />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Text="Add Word"
+                   Style="{StaticResource Heading}" Margin="0,0,0,10"/>
+            <Label Grid.Row="1" Text="Word" VerticalTextAlignment="Center"
+                   FontSize="Medium" />
+            <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Word, Mode=TwoWay}"
+                   FontSize="Medium" />
+            <Label Grid.Row="2" Text="Definition" Margin="0,10,0,0"
+                   FontSize="Medium" />
+            <Editor Grid.Row="2" Grid.Column="1" Text="{Binding Definition, Mode=TwoWay}"
+                    AutoSize="TextChanges"
+                    FontSize="Medium"
+                    Margin="0" HeightRequest="120"/>
+            <StackLayout Grid.Row="3" Grid.ColumnSpan="2" Margin="0,15,0,0"
+                         Orientation="Horizontal" VerticalOptions="Start">
+                <Button Text="Cancel"
+                        Command="{Binding CancelCommand}"
+                        HorizontalOptions="FillAndExpand"></Button>
+                <Button Text="Save"
+                        Command="{Binding SaveCommand}"
+                        HorizontalOptions="FillAndExpand"></Button>
             </StackLayout>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
     
 </ContentPage>

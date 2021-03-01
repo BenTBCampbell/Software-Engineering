@@ -49,6 +49,8 @@ The first time the emulator loads it will initialize. This will only happen the 
 
 ## [Troubleshooting](https://docs.microsoft.com/en-us/xamarin/android/get-started/installation/android-emulator/troubleshooting?pivots=windows)
 
+See also, [this article](https://developer.android.com/studio/run/emulator-troubleshooting).
+
 ### Performance is too slow
 * <strong>Make sure hardware acceleration is enabled.</strong> If it is not, the program will run much slower. Open a command prompt and type the following:
 

@@ -22,15 +22,19 @@
      - Interact with Database
      - (maybe a very basic filter?)
 5. Homework:
-   - **Chris**: 
-   - **Ben**: Project Architecture, Accounts, figure out VS
-   - **Margs**: 
-   - **Catherine**: Prototype/Code Screens
+   - **Ben**: Look over C# Conventions, Project Architecture, set up Visual Studio
+   - **Catherine**: Look over C# Conventions, set up Visual Studio, learn Git Hub, program UI
+   - **Chris**: Learn how to do accounts, learn Git Hub, program UI, connect with Database
+   - **Margs**: Look over C# Conventions, look up analasis models, set up Visual Studio
 
 ## Pictures
 
-### (title)
+### Meeting Plan
 
-(description)
+![Meeting Plan.jpg](Images/Meeting%20Plan.jpg)
 
-![(title).jpg](Images/(title).jpg)
+### Leaderboard
+
+We are going to add another level 2 (recommended) requirement: leaderboards.
+
+![Leaderboard.jpg](Images/Leaderboard.jpg)

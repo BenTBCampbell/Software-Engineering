@@ -39,6 +39,8 @@ git config --system core.longpaths true
   - Theresa Geiger - tgeiger001@student.franciscan.edu
   - Jensey Clement - jclement001@student.franciscan.edu
   - Francie Mehl - fmehl001@student.franciscan.edu
+  - Collette Joyce - collettejoy18@gmail.com
+  - Kevin Roche - 
 
 ### Calendar
 #### February

@@ -39,15 +39,15 @@
        - Ask basic questions: what would they like to see in the app? What do they want/not want?
      - Catherine: get Mac stuff set up 
 5. Homework:
-   - **Ben**: Git Hub Wiki
-   - **Catherine**: Get Mac stuff set up
-   - **Chris**: 
-   - **Margs**: 
+   - **Ben**: Project Architecture, GitHyb Wiki, Downloads, Issues
+   - **Catherine**: iOS on VS, UI Plan
+   - **Chris**: Take stuff out of App, add viewers, Logic Plan
+   - **Margs**: Talk to test users, Accounts, Project test plan
 
 ## Pictures
 
-### Leaderboard
+### Cone of Uncertainty
 
-We are going to add another level 2 (recommended) requirement: leaderboards.
+There is a model of how much our estimation varies over time.
 
-![Leaderboard.jpg](Images/Leaderboard.jpg)
+![Cone of Uncertainty.jpg](Images/Cone%20of%20Uncertainty.jpg)

@@ -40,7 +40,7 @@ git config --system core.longpaths true
   - Jensey Clement - jclement001@student.franciscan.edu
   - Francie Mehl - fmehl001@student.franciscan.edu
   - Collette Joyce - collettejoy18@gmail.com
-  - Kevin Roche - 
+  - Kevin Roche - kroche.md@gmail.com
 
 ### Calendar
 

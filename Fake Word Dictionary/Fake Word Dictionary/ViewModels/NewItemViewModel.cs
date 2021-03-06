@@ -76,47 +76,47 @@ namespace Fictionary.ViewModels
             try
             {
                 // Establish the database connection and automatically close when complete
-                using (MySqlConnection conn = new MySqlConnection(dbConnection))
-                {
+                using MySqlConnection conn = new MySqlConnection(dbConnection);
+
                     // Open the connnection
-                    conn.Open();
+                conn.Open();
 
-                    // Create the command object, to execute SQL commands
-                    MySqlCommand command = new MySqlCommand() { Connection = conn };
+                // Create the command object, to execute SQL commands
+                MySqlCommand command = new MySqlCommand() { Connection = conn };
 
-                    // Add the word to the database
-                    command.CommandText = sql1;
-                    await command.ExecuteNonQueryAsync();
+                // Add the word to the database
+                command.CommandText = sql1;
+                await command.ExecuteNonQueryAsync();
 
-                    // Get the primary key id of the word and store it in word_id
-                    command.CommandText = sql2;
-                    using (var reader = await command.ExecuteReaderAsync())
-                    {
-                        reader.Read();
-                        word_id = reader.GetInt32(0);
-                    }
-
-                    // Add the definition to the database
-                    // If the definition already exists, we will notify the user via error handling
-                    sql3 = $"INSERT INTO Definition (definition, word_id) VALUES (\"{Definition}\", {word_id});";
-                    command.CommandText = sql3;
-                    await command.ExecuteNonQueryAsync();
-                    return true;
+                // Get the primary key id of the word and store it in word_id
+                command.CommandText = sql2;
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    reader.Read();
+                    word_id = reader.GetInt32(0);
                 }
+
+                // Add the definition to the database
+                // If the definition already exists, we will notify the user via error handling
+                sql3 = $"INSERT INTO Definition (definition, word_id) VALUES (\"{Definition}\", {word_id});";
+                command.CommandText = sql3;
+                await command.ExecuteNonQueryAsync();
+                return true;
+
             }
             catch (MySqlException ex) when (ex.Number == 1062)
             {
-                await newItemPage.DisplayAlert("Duplicate Definition",
+                await NewItemPage.DisplayAlert("Duplicate Definition",
                     "This definition already exists!\n\nPlease choose a different definition.", "Okay");
             }
             catch (MySqlException ex) when (ex.Number == 1042)
             {
-                await newItemPage.DisplayAlert("Connection Error",
+                await NewItemPage.DisplayAlert("Connection Error",
                   "The database refused to connect.\n\nPlease make sure you are connected to the internet.", "Okay");
             }
             catch (MySqlException ex)
             {
-                await newItemPage.DisplayAlert("Database Error",
+                await NewItemPage.DisplayAlert("Database Error",
                  $"A database error occurred. The word could not be added.\n\nError: {ex}", "Okay");
             }
             catch (AggregateException ex)
@@ -125,7 +125,7 @@ namespace Fictionary.ViewModels
                 {
                     if ((x is IOException) && (x.InnerException is SocketException))
                     {
-                        newItemPage.DisplayAlert("Connection Error",
+                        NewItemPage.DisplayAlert("Connection Error",
                  "The database refused to connect.\n\nPlease make sure you are connected to the internet.", "Okay");
                         return true;
                     }

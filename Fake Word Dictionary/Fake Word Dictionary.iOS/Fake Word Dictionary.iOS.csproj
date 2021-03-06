@@ -145,4 +145,7 @@
       <Name>Fake Word Dictionary</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\fictionary_logo.png" />
+  </ItemGroup>
 </Project>

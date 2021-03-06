@@ -19,5 +19,11 @@ namespace Fake_Word_Dictionary
         {
             await Shell.Current.GoToAsync("//LoginPage");
         }
+
+        private async void OnAddWordClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync(nameof(NewItemPage));
+            Shell.Current.FlyoutIsPresented = false;
+        }
     }
 }

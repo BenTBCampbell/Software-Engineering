@@ -1,6 +1,7 @@
 ﻿using Fake_Word_Dictionary.Services;
 using Fake_Word_Dictionary.Views;
 using System;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,6 +20,8 @@ namespace Fake_Word_Dictionary
 
         protected override void OnStart()
         {
+            // Start tracking the app version and build so it can be displayed on the about page
+            VersionTracking.Track();
         }
 
         protected override void OnSleep()

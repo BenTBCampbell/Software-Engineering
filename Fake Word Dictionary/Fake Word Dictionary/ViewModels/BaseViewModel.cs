@@ -1,12 +1,12 @@
-﻿using Fake_Word_Dictionary.Models;
-using Fake_Word_Dictionary.Services;
+﻿using Fictionary.Models;
+using Fictionary.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
-namespace Fake_Word_Dictionary.ViewModels
+namespace Fictionary.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

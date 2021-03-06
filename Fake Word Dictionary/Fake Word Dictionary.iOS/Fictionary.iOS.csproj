@@ -9,9 +9,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Fake_Word_Dictionary.iOS</RootNamespace>
+    <RootNamespace>Fictionary.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Fake Word Dictionary.iOS</AssemblyName>
+    <AssemblyName>Fictionary.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <ProvisioningType>automatic</ProvisioningType>
@@ -140,9 +140,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Fake Word Dictionary\Fake Word Dictionary.csproj">
-      <Project>{7D772F96-88FA-479D-818A-9DA28C4BC623}</Project>
-      <Name>Fake Word Dictionary</Name>
+    <ProjectReference Include="..\Fake Word Dictionary\Fictionary.csproj">
+      <Project>{42EB1A4D-3335-4C0D-8A19-E02100E68251}</Project>
+      <Name>Fictionary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

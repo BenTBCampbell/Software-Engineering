@@ -1,11 +1,11 @@
-﻿using Fake_Word_Dictionary.Services;
-using Fake_Word_Dictionary.Views;
+﻿using Fictionary.Services;
+using Fictionary.Views;
 using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Fake_Word_Dictionary
+namespace Fictionary
 {
     public partial class App : Application
     {

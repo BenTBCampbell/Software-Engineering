@@ -1,10 +1,10 @@
-﻿using Fake_Word_Dictionary.Models;
+﻿using Fictionary.Models;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Fake_Word_Dictionary.ViewModels
+namespace Fictionary.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel

@@ -1,10 +1,10 @@
-﻿using Fake_Word_Dictionary.Views;
+﻿using Fictionary.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 
-namespace Fake_Word_Dictionary.ViewModels
+namespace Fictionary.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {

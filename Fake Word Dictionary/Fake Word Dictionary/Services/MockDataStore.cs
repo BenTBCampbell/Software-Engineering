@@ -1,10 +1,10 @@
-﻿using Fake_Word_Dictionary.Models;
+﻿using Fictionary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Fake_Word_Dictionary.Services
+namespace Fictionary.Services
 {
     public class MockDataStore : IDataStore<Item>
     {

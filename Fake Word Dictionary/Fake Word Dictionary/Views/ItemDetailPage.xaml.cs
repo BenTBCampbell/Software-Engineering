@@ -1,8 +1,8 @@
-﻿using Fake_Word_Dictionary.ViewModels;
+﻿using Fictionary.ViewModels;
 using System.ComponentModel;
 using Xamarin.Forms;
 
-namespace Fake_Word_Dictionary.Views
+namespace Fictionary.Views
 {
     public partial class ItemDetailPage : ContentPage
     {

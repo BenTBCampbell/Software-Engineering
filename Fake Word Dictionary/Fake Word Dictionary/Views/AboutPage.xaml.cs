@@ -4,7 +4,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Fake_Word_Dictionary.Views
+namespace Fictionary.Views
 {
     public partial class AboutPage : ContentPage
     {

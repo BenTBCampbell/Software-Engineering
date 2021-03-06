@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Fake_Word_Dictionary.Services
+namespace Fictionary.Services
 {
     public interface IDataStore<T>
     {

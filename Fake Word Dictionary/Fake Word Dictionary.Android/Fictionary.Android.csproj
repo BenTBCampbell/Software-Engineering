@@ -7,8 +7,8 @@
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Fake_Word_Dictionary.Droid</RootNamespace>
-    <AssemblyName>Fake Word Dictionary.Android</AssemblyName>
+    <RootNamespace>Fictionary.Droid</RootNamespace>
+    <AssemblyName>Fictionary.Android</AssemblyName>
     <Deterministic>True</Deterministic>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
@@ -59,12 +59,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Acr.UserDialogs">
-      <Version>7.1.0.475</Version>
-    </PackageReference>
-    <PackageReference Include="MySql.Data">
-      <Version>8.0.23</Version>
-    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
@@ -100,9 +94,9 @@
     <AndroidResource Include="Resources\drawable\icon_feed.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fake Word Dictionary\Fake Word Dictionary.csproj">
-      <Project>{7D772F96-88FA-479D-818A-9DA28C4BC623}</Project>
-      <Name>Fake Word Dictionary</Name>
+    <ProjectReference Include="..\Fake Word Dictionary\Fictionary.csproj">
+      <Project>{42EB1A4D-3335-4C0D-8A19-E02100E68251}</Project>
+      <Name>Fictionary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -111,7 +105,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadUnhandledDeviceExceptionFakeWordDictionaryAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadUnhandledDeviceExceptionFakeWordDictionaryAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

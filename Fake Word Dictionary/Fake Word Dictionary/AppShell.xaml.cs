@@ -1,10 +1,10 @@
-﻿using Fake_Word_Dictionary.ViewModels;
-using Fake_Word_Dictionary.Views;
+﻿using Fictionary.ViewModels;
+using Fictionary.Views;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
 
-namespace Fake_Word_Dictionary
+namespace Fictionary
 {
     public partial class AppShell : Xamarin.Forms.Shell
     {

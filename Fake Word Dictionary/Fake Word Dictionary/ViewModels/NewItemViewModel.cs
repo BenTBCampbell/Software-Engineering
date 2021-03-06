@@ -1,5 +1,5 @@
-﻿using Fake_Word_Dictionary.Models;
-using Fake_Word_Dictionary.Views;
+﻿using Fictionary.Models;
+using Fictionary.Views;
 using MySqlConnector;
 using System;
 using System.IO;
@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Fake_Word_Dictionary.ViewModels
+namespace Fictionary.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {

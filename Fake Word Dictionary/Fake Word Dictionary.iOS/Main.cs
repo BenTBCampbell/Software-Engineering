@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Fake_Word_Dictionary.iOS
+namespace Fictionary.iOS
 {
     public class Application
     {

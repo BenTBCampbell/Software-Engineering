@@ -1,6 +1,6 @@
-﻿using Fake_Word_Dictionary.Models;
-using Fake_Word_Dictionary.ViewModels;
-using Fake_Word_Dictionary.Views;
+﻿using Fictionary.Models;
+using Fictionary.ViewModels;
+using Fictionary.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Fake_Word_Dictionary.Views
+namespace Fictionary.Views
 {
     public partial class ItemsPage : ContentPage
     {

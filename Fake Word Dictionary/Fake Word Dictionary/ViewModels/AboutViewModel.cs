@@ -3,7 +3,7 @@ using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace Fake_Word_Dictionary.ViewModels
+namespace Fictionary.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {

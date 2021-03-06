@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Fake_Word_Dictionary.Models
+namespace Fictionary.Models
 {
     public class Item
     {

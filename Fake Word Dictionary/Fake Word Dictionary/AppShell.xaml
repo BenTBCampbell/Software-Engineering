@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-       xmlns:local="clr-namespace:Fake_Word_Dictionary.Views"
-       Title="Fake_Word_Dictionary"
-       x:Class="Fake_Word_Dictionary.AppShell">
+       xmlns:local="clr-namespace:Fictionary.Views"
+       Title="Fictionary"
+       x:Class="Fictionary.AppShell">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.

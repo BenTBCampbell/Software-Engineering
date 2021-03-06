@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fake_Word_Dictionary.Views.AboutPage"
-             xmlns:vm="clr-namespace:Fake_Word_Dictionary.ViewModels"
+             x:Class="Fictionary.Views.AboutPage"
+             xmlns:vm="clr-namespace:Fictionary.ViewModels"
              Title="{Binding Title}" Appearing="ContentPage_Appearing">
     
     <ContentPage.BindingContext>

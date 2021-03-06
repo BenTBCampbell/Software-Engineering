@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Fake_Word_Dictionary.iOS")]
+[assembly: AssemblyTitle("Fictionary")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Fake_Word_Dictionary.iOS")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyProduct("Fictionary")]
+[assembly: AssemblyCopyright("Copyright © 2021 the Fictionary Team")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

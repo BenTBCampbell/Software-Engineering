@@ -2,13 +2,13 @@
 using Fictionary.Views;
 using MySqlConnector;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
+using System.Linq;
 using System.IO;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using static Fictionary.DatabaseFunctions;
 
 namespace Fictionary.ViewModels
 {
@@ -41,6 +41,7 @@ namespace Fictionary.ViewModels
 
         async Task ExecuteLoadItemsCommand()
         {
+            // The interface is currently busy
             IsBusy = true;
 
             // Clear all items
@@ -49,61 +50,8 @@ namespace Fictionary.ViewModels
             try
             {
                 // Load the items
-                var items = await LoadWordsfromDB();
-                foreach (var item in items)
-                {
-                    Items.Add(item);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
-        }
-
-        private async Task<ObservableCollection<Item>> LoadWordsfromDB()
-        {
-            ObservableCollection<Item> collection = new ObservableCollection<Item>();
-
-            // Login details for database
-            const string dbConnection = "server=208.97.162.28;uid=ben_db;" +
-                "pwd=Thomas1154;database=software_engineering";
-
-            // SQL Query
-            string sql = "SELECT Word.word, Definition.definition FROM Word " +
-                "JOIN Definition ON Definition.word_id = Word.word_id " +
-                "ORDER BY Word.word, Definition.definition;";
-
-            try
-            {
-                // Establish the database connection and automatically close when complete
-                using MySqlConnection conn = new MySqlConnection(dbConnection);
-
-                // Open the connnection
-                conn.Open();
-
-                // Create the command object, to execute SQL commands
-                MySqlCommand command = new MySqlCommand() { Connection = conn };
-
-                // Gets the words that are currently in the database
-                command.CommandText = sql;
-                using (var reader = await command.ExecuteReaderAsync())
-                {
-                    bool rowsLeft = true;
-
-                    while (rowsLeft)
-                    {
-                        rowsLeft = await reader.ReadAsync();
-                        if (rowsLeft)
-                        {
-                            collection.Add(new Item() { Text = reader.GetString(0), Description = reader.GetString(1) });
-                        }
-                    }
-                }
+                var items = await LoadWordsfromDb();
+                items.ForEach((item) => Items.Add(item));
             }
             catch (MySqlException ex) when (ex.Number == 1042)
             {
@@ -131,8 +79,10 @@ namespace Fictionary.ViewModels
                     }
                 });
             }
-
-            return collection;
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         public void OnAppearing()

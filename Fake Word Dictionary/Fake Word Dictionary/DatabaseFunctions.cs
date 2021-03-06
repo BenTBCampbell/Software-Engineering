@@ -58,13 +58,12 @@ namespace Fictionary
         }
 
         /// <summary>
-        /// Adds a word to the database and then to the list, asynchronously
+        /// Adds a word to the database, asynchronously
         /// </summary>
         /// <param name="word">The word to add</param>
         /// <param name="definition">The definition for the word</param>
-        /// <returns>Whether the operation succeeded</returns>
         /// <exception cref="MySqlException"></exception>
-        public async static Task<bool> AddWordtoDb(string word, string definition)
+        public async static Task AddWordtoDb(string word, string definition)
         {
             #region Variables
             // Query for adding the new word. If a duplicate word already exists, ignore it.
@@ -88,7 +87,7 @@ namespace Fictionary
             MySqlCommand command = new MySqlCommand() { Connection = conn };
 
             // Add the word to the database
-            // If the word already exists, a MySql Exception will be thrown (Code: 1062)
+            // If the word already exists, the database will ignore the command
             command.CommandText = sql1;
             await command.ExecuteNonQueryAsync();
 
@@ -105,9 +104,6 @@ namespace Fictionary
             sql3 = $"INSERT INTO Definition (definition, word_id) VALUES (\"{definition.ToLower()}\", {word_id});";
             command.CommandText = sql3;
             await command.ExecuteNonQueryAsync();
-
-            // If we made to this point without hitting an exception, return true
-            return true;
         }
     }
 }

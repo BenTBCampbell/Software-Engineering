@@ -58,13 +58,10 @@ namespace Fictionary.ViewModels
 
         private async void OnSave()
         {
-            // Whether the operation succeeded
-            bool succeeded = false;
-
             try
             {
                 // Attempt to add the word to the database
-                succeeded = await AddWordtoDb(Word, Definition);
+                await AddWordtoDb(Word, Definition);
             }
             catch (MySqlException ex) when (ex.Number == 1062)
             {
@@ -96,19 +93,6 @@ namespace Fictionary.ViewModels
                         return false;
                     }
                 });
-            }
-
-            // Only add the word if the operation succeeded
-            if (succeeded)
-            {
-                Item newItem = new Item()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    Text = Word,
-                    Description = Definition
-                };
-
-                await DataStore.AddItemAsync(newItem);
             }
 
             // This will pop the current page off the navigation stack

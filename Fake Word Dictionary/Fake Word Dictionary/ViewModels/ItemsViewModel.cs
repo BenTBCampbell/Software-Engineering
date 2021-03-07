@@ -3,12 +3,11 @@ using Fictionary.Views;
 using MySqlConnector;
 using System;
 using System.Collections.ObjectModel;
-using System.Linq;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using static Fictionary.DatabaseFunctions;
 
 namespace Fictionary.ViewModels
 {
@@ -49,9 +48,12 @@ namespace Fictionary.ViewModels
 
             try
             {
-                // Load the items
-                var items = await LoadWordsfromDb();
-                items.ForEach((item) => Items.Add(item));
+               // Get the items from the datastore and refresh only if needed
+                var items = await DataStore.GetItemsAsync(false);
+                foreach (var item in items)
+                {
+                    Items.Add(item);
+                }
             }
             catch (MySqlException ex) when (ex.Number == 1042)
             {

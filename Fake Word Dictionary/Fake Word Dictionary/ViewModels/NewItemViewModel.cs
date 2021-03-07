@@ -58,10 +58,13 @@ namespace Fictionary.ViewModels
 
         private async void OnSave()
         {
+            bool succeeded = false;
+
             try
             {
                 // Attempt to add the word to the database
                 await AddWordtoDb(Word, Definition);
+                succeeded = true;
             }
             catch (MySqlException ex) when (ex.Number == 1062)
             {
@@ -92,6 +95,17 @@ namespace Fictionary.ViewModels
                     {
                         return false;
                     }
+                });
+            }
+
+            // If the word was added succesfully, add it to the word list
+            if (succeeded)
+            {
+                await DataStore.AddItemAsync(new Item()
+                {
+                    Text = Word,
+                    Description = Definition,
+                    Id = Guid.NewGuid().ToString()
                 });
             }
 

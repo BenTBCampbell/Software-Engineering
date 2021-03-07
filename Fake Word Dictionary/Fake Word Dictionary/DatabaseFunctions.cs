@@ -3,6 +3,7 @@ using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
@@ -21,7 +22,7 @@ namespace Fictionary
         /// </summary>
         /// <returns>A list containing the words from the database</returns>
         /// <exception cref="MySqlException"></exception>
-        public async static Task<List<Item>> LoadWordsfromDb()
+        public static List<Item> LoadWordsfromDb()
         {
             List<Item> collection = new List<Item>();
 
@@ -30,31 +31,40 @@ namespace Fictionary
                 "JOIN Definition ON Definition.word_id = Word.word_id " +
                 "ORDER BY Word.word, Definition.definition;";
 
-            // Establish the database connection and automatically close when complete
-            using MySqlConnection conn = new MySqlConnection(dbConnection);
-
-            // Open the connnection
-            conn.Open();
-
-            // Create the command object, to execute SQL commands
-            MySqlCommand command = new MySqlCommand() { Connection = conn };
-
-            // Gets the words that are currently in the database
-            command.CommandText = sql;
-            using (var reader = await command.ExecuteReaderAsync())
+            try
             {
-                bool rowsLeft = true;
+                // Establish the database connection and automatically close when complete
+                using var conn = new MySqlConnection(dbConnection);
+                conn.Open();
 
-                while (rowsLeft)
+                // Create the command object, to execute SQL commands
+                using var command = new MySqlCommand() { Connection = conn, CommandText = sql };
+
+                // Gets the words that are currently in the database
+                using var reader = command.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    rowsLeft = await reader.ReadAsync();
-                    if (rowsLeft)
+                    // Add an item to the collection
+                    string text = reader.GetString(0);
+                    string description = reader.GetString(1);
+
+                    collection.Add(new Item()
                     {
-                        collection.Add(new Item() { Text = reader.GetString(0), Description = reader.GetString(1) });
-                    }
+                        Text = text,
+                        Description = description,
+                        Id = Guid.NewGuid().ToString()
+                    }); ;
                 }
+
             }
+            catch (Exception ex)
+            {
+                Debug.Write(ex);
+            }
+
             return collection;
+
         }
 
         /// <summary>
@@ -105,5 +115,6 @@ namespace Fictionary
             command.CommandText = sql3;
             await command.ExecuteNonQueryAsync();
         }
+
     }
 }

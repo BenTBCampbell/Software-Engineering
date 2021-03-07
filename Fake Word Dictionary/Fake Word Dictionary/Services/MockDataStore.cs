@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Fictionary.DatabaseFunctions;
 
 namespace Fictionary.Services
 {
@@ -12,20 +13,13 @@ namespace Fictionary.Services
 
         public MockDataStore()
         {
-            items = new List<Item>()
-            {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
-            };
+            items = LoadWordsfromDb();
         }
 
         public async Task<bool> AddItemAsync(Item item)
         {
             items.Add(item);
+            items.Sort(new ItemComparer());
 
             return await Task.FromResult(true);
         }
@@ -54,7 +48,14 @@ namespace Fictionary.Services
 
         public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(items);
+            if (forceRefresh)
+            {
+                return LoadWordsfromDb();
+            }
+            else
+            {
+                return await Task.FromResult(items);
+            }
         }
     }
 }

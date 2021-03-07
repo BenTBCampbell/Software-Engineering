@@ -29,7 +29,7 @@ git config --system core.longpaths true
 - **Documenter**: Ben, Margs
 - **Code Maintenance**: Ben, Chris
 - **Tester**: Ben, Margs
-- **Users**:
+- **Test Users**:
   - Aaron Bangs - abangs001@student.franciscan.edu
   - John Wuller - jwuller001@student.franciscan.edu
   - Kevin Marr - kmarr001@student.franciscan.edu
@@ -41,6 +41,7 @@ git config --system core.longpaths true
   - Francie Mehl - fmehl001@student.franciscan.edu
   - Collette Joyce - collettejoy18@gmail.com
   - Kevin Roche - kroche.md@gmail.com
+  - Sarah Rabayda - srabayda001@student.franciscan.edu
 
 ### Calendar
 

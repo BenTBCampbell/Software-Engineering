@@ -31,36 +31,28 @@ namespace Fictionary
                 "JOIN Definition ON Definition.word_id = Word.word_id " +
                 "ORDER BY Word.word, Definition.definition;";
 
-            try
+            // Establish the database connection and automatically close when complete
+            using var conn = new MySqlConnection(dbConnection);
+            conn.Open();
+
+            // Create the command object, to execute SQL commands
+            using var command = new MySqlCommand() { Connection = conn, CommandText = sql };
+
+            // Gets the words that are currently in the database
+            using var reader = command.ExecuteReader();
+
+            while (reader.Read())
             {
-                // Establish the database connection and automatically close when complete
-                using var conn = new MySqlConnection(dbConnection);
-                conn.Open();
+                // Add an item to the collection
+                string text = reader.GetString(0);
+                string description = reader.GetString(1);
 
-                // Create the command object, to execute SQL commands
-                using var command = new MySqlCommand() { Connection = conn, CommandText = sql };
-
-                // Gets the words that are currently in the database
-                using var reader = command.ExecuteReader();
-
-                while (reader.Read())
+                collection.Add(new Item()
                 {
-                    // Add an item to the collection
-                    string text = reader.GetString(0);
-                    string description = reader.GetString(1);
-
-                    collection.Add(new Item()
-                    {
-                        Text = text,
-                        Description = description,
-                        Id = Guid.NewGuid().ToString()
-                    }); ;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Debug.Write(ex);
+                    Text = text,
+                    Description = description,
+                    Id = Guid.NewGuid().ToString()
+                }); ;
             }
 
             return collection;

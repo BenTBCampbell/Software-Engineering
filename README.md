@@ -1,7 +1,5 @@
 ## Oxword Fictionary
 
-Programming is fun!
-
 A fun phone app where people can make up definitions for words that don't exist.
 
 ### Cloning Help

@@ -2,14 +2,14 @@
 
 ## Backlog
 
-last updated: Feb 15, 2021
+last updated: March 9, 2021
 
 ### 1. Essential
   - [ ] Input new words
   - [ ] Filter
   - [ ] Search words
   - [ ] Page to display an entry
-  - [ ] Messages?
+  - [ ] Browse: page to display all entries.
 ### 2. Recommended
   - [ ] Accounts
   - [ ] Name/Logo

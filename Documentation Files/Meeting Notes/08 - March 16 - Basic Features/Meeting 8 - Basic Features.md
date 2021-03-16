@@ -16,7 +16,7 @@
      - Project Test Plan due in 2 weeks!
 5. Anything to add?
 6. Homework:
-   - **Ben**: Filter, other features (on demo app)
+   - **Ben**: Filter, other features (on demo app), branches
    - **Catherine**: Make UI (on demo app)
    - **Chris**: Finish setting up production repository
    - **Margs**: Project test plan, accounts (on demo app)

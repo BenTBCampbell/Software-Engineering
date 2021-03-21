@@ -372,5 +372,4 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
-Fake Word Dictionary/Fake Word Dictionary/Filter.cs
 Fictionary/Fictionary.Android/Resources/Resource.designer.cs

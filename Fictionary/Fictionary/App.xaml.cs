@@ -9,8 +9,8 @@ namespace Fictionary
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            Boostrapper.Initialize();
+            //MainPage = Resolver.Resolve<MainShell>();
         }
 
         protected override void OnStart()

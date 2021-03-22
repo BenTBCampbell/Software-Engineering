@@ -26,7 +26,7 @@
   - password
   - int rating
   - words[]
-  - commands[]
+  - comments[]
   - upvotes[]
   - followed_accounts[]
   - make_comment()

@@ -1,6 +1,8 @@
 ## Oxword Fictionary Documentation Formatting Conventions:
 
-From GitHub Markdown rendering conventions.
+*Inspired by GitHub Markdown rendering conventions.*
+
+**There is a word document with all of these as custom fonts in it. See "Markdown Format Template.docx" in [./Templates](./Templates)**
 
 Document:
   - background color: white

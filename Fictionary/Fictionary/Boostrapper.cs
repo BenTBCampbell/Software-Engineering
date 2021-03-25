@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Autofac;
 using Fictionary.ViewModels;
+using Fictionary.Repositories;
+using Xamarin.Forms;
 
 namespace Fictionary
 {
@@ -11,8 +13,10 @@ namespace Fictionary
         public static void Initialize()
         {
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterAssemblyTypes(typeof(App).Assembly);
-            containerBuilder.RegisterAssemblyTypes().Where(x => x.IsSubclassOf(typeof(ViewModel)));
+            containerBuilder.RegisterType<AccountRepository>();
+            containerBuilder.RegisterType<WordRepository>();
+            containerBuilder.RegisterAssemblyTypes(typeof(App).Assembly)
+                .Where(x => x.IsSubclassOf(typeof(ViewModel)) || x.IsSubclassOf(typeof(Page)));
 
             var container = containerBuilder.Build();
             Resolver.Initialize(container);

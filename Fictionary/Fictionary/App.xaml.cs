@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Fictionary.Views;
 
 namespace Fictionary
 {
@@ -9,8 +10,10 @@ namespace Fictionary
         public App()
         {
             InitializeComponent();
+
+            // Start the application
             Boostrapper.Initialize();
-            //MainPage = Resolver.Resolve<MainShell>();
+            MainPage = new NavigationPage(Resolver.Resolve<HomeView>());
         }
 
         protected override void OnStart()

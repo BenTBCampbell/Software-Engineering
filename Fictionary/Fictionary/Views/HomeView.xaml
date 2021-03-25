@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fictionary.Views.HomeView">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="This is the default page!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Account Page" Clicked="Account_Clicked"/>
+            <Button Text="Create Account Page" Clicked="CreateAccount_Clicked" />
+            <Button Text="Create Word Page" Clicked="CreateWord_Clicked" />
+            <Button Text="Credits Page" Clicked="Credits_Clicked" />
+            <Button Text="Details Page" Clicked="Details_Clicked" />
+            <Button Text="Search Page" Clicked="Search_Clicked" />
+            <Button Text="Settings Page" Clicked="Settings_Clicked"/>
+            <Button Text="Sign In Page" Clicked="SignIn_Clicked" />
+            <Label Padding="15" Text="For WordItem, click 'Search Page'." />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

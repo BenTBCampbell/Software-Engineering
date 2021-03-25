@@ -10,6 +10,16 @@ namespace Fictionary.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        //public INavigation Navigation { get; set; } = new Navigator();
+        // We only need to use this for dependency properties with a custom Set attribute
+        public void RaisePropertyChanged(params string[] propertyNames)
+        {
+            // Notify the system for each property that has changed
+            foreach (string name in propertyNames)
+            {
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+            }
+        }
+
+        public INavigation Navigation { get; set; }
     }
 }

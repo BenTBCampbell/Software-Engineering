@@ -8,33 +8,15 @@
         <Grid Margin="10,10,10,60">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="45" />
-                <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="200" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-
-            <Button Grid.Row="0"
-                    Grid.Column="1"
-                    Text="Back"
-                    Margin="15,0,15,0" />
-            <SearchBar Grid.Row="2"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="3"
-                       Placeholder="Search" />
+            <Frame Style="{DynamicResource SearchFrame}"><SearchBar Placeholder="Search" /></Frame>
 
             <!--CATHERINE: The CollectionView is used to display your items-->
-            <BoxView Grid.Row="4"
-                     Grid.ColumnSpan="3"
+            <BoxView Grid.Row="1"
                      BackgroundColor="WhiteSmoke" />
             <CollectionView BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
-                Dark={StaticResource DarkNavBarBackground}}" Grid.Row="4" Grid.ColumnSpan="3" Opacity="0.5">
+                Dark={StaticResource DarkNavBarBackground}}" Grid.Row="1" Opacity="0.5">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>

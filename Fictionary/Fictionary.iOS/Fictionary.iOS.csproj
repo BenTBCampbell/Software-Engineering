@@ -68,7 +68,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <BundleResource Include="Resources\Font Awesome.otf" />
+    <BundleResource Include="Resources\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -133,7 +133,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Fictionary\Fictionary.csproj">
-      <Project>{0A5DBC3F-7FE6-4153-9B6A-3ECE604423E7}</Project>
+      <Project>{066A73EB-A5FF-42DD-BC05-A28630216EC4}</Project>
       <Name>Fictionary</Name>
     </ProjectReference>
   </ItemGroup>

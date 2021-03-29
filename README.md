@@ -2,6 +2,8 @@
 
 A fun phone app where people can make up definitions for words that don't exist.
 
+[Looking for Downloads?](https://github.com/BenTBCampbell/Software-Engineering/wiki/Downloads)
+
 ### Cloning Help
 If you get the error **file name too long** while trying to clone or pull the projcet, run this command:
 ```

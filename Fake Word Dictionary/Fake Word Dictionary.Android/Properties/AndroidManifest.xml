@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="beta" package="com.fictionary_team.fictionary" android:installLocation="internalOnly">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="demo" package="com.fictionary_team.fictionary" android:installLocation="preferExternal">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
-	<application android:label="Fictionary" android:theme="@style/MainTheme" android:icon="@drawable/fictionary_logo"></application>
+	<application android:label="Fictionary (demo)" android:theme="@style/MainTheme" android:icon="@drawable/icon_feed"></application>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>

@@ -3,10 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fictionary.Views.SignInView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="15">
+            <Label Style="{DynamicResource Headings}"
+                   Text="Sign In"
+                   Margin="0,0,0,15" />
+            <Label FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   Text="Username" />
+            <Entry Placeholder="Username" />
+            <Label FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   Text="Password" />
+            <Entry IsPassword="True"
+                   Placeholder="Password" />
+            <Grid ColumnDefinitions="*, *">
+                <Button Text="Sign In" />
+                <Button Grid.Column="1"
+                        Text="Cancel" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

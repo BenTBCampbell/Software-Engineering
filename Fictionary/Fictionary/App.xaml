@@ -4,5 +4,46 @@
              x:Class="Fictionary.App">
     <Application.Resources>
 
+        <!--Define colors for light theme-->
+        <Color x:Key="LightPrimaryColor">White</Color>
+        <Color x:Key="LightSecondaryColor">DodgerBlue</Color>
+        <Color x:Key="LightMonoColor">Black</Color>
+
+        <!--Define colors for dark theme-->
+        <Color x:Key="DarkPrimaryColor">Gray</Color>
+        <Color x:Key="DarkSecondaryColor">WhiteSmoke</Color>
+        <Color x:Key="DarkMonoColor">WhiteSmoke</Color>
+
+        <Style x:Key="Headings"
+               TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="Large" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor},
+                        Dark={StaticResource DarkSecondaryColor}}" />
+        </Style>
+
+        <Style x:Key="MediumLabels"
+               TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="Body" />
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light=DimGray, Dark=WhiteSmoke}" />
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightPrimaryColor}, 
+                        Dark={StaticResource DarkPrimaryColor}}" />
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor},
+                        Dark={StaticResource DarkSecondaryColor}}" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
     </Application.Resources>
 </Application>

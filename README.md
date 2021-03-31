@@ -2,7 +2,7 @@
 
 A fun phone app where people can make up definitions for words that don't exist.
 
-[Looking for Downloads?](https://github.com/BenTBCampbell/Software-Engineering/wiki/Downloads)
+[Looking for Downloads?](https://github.com/BenTBCampbell/Software-Engineering/releases)
 
 ### Cloning Help
 If you get the error **file name too long** while trying to clone or pull the projcet, run this command:
@@ -17,7 +17,7 @@ git config --system core.longpaths true
 - **Language**: C#
 - **Database**: MySQL
 - **User Interface**: Xamarian forms, (XAML)
-- **Version Control**: Git 
+- **Version Control**: Git
 
 ### Project Roles
 

@@ -1,12 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fictionary.Views.SignInView">
+             x:Class="Fictionary.Views.SignInView"
+             Title="Sign In">
     <ContentPage.Content>
         <StackLayout Margin="15">
-            <Label Style="{DynamicResource Headings}"
-                   Text="Sign In"
-                   Margin="0,0,0,15" />
             <Label FontSize="Medium"
                    HorizontalTextAlignment="Center"
                    Text="Username" />
@@ -16,7 +14,8 @@
                    Text="Password" />
             <Entry IsPassword="True"
                    Placeholder="Password" />
-            <Grid ColumnDefinitions="*, *">
+            <Grid ColumnDefinitions="*, *"
+                  Margin="0,15,0,0">
                 <Button Text="Sign In" />
                 <Button Grid.Column="1"
                         Text="Cancel" />

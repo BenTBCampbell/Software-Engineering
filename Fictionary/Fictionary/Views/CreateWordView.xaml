@@ -1,12 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Fictionary.Views.CreateWordView">
+             x:Class="Fictionary.Views.CreateWordView"
+             Title="Add Word">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid Margin="10,20,10,40">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label 
+                   Grid.Column="0"
+                   Style="{DynamicResource MediumLabels}"
+                   Text="Word:"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End" />
+            <Entry
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Placeholder="word" />
+
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{DynamicResource MediumLabels}"
+                   Text="Definition:"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End"
+                  />
+            <Entry Grid.Row="1"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="2"
+                   Placeholder="definition" />
+            <Grid Grid.Row="2"
+                  Grid.ColumnSpan="3"
+                  ColumnDefinitions="*, *"
+                  VerticalOptions="Start"
+                  Margin="0,15,0,0">
+                <Button Text="Add Word"
+                        Command="{Binding AddWord}" />
+                <Button Text="Cancel"
+                        Command="{Binding Cancel}"
+                        Grid.Column="1" />
+            </Grid>
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

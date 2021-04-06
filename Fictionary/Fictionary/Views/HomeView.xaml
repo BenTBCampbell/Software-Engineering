@@ -2,21 +2,77 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Fictionary.Views.HomeView"
-             Title="Fictionary">
+             Title="Home">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="This is the default page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Text="Account Page" Clicked="Account_Clicked"/>
-            <Button Text="Create Account Page" Clicked="CreateAccount_Clicked" />
-            <Button Text="Create Word Page" Clicked="CreateWord_Clicked" />
-            <Button Text="Credits Page" Clicked="Credits_Clicked" />
-            <Button Text="Details Page" Clicked="Details_Clicked" />
-            <Button Text="Search Page" Clicked="Search_Clicked" />
-            <Button Text="Settings Page" Clicked="Settings_Clicked"/>
-            <Button Text="Sign In Page" Clicked="SignIn_Clicked" />
-            <Label Padding="15" Text="For WordItem, click 'Search Page'." />
-        </StackLayout>
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="90" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="1"
+                   Grid.ColumnSpan="3"
+                   Text="Oxword Fictionary"
+                   FontSize="40"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,10,0,0" />
+
+            <Button Grid.Row="4"
+                    Grid.ColumnSpan="3"
+                    Text="Add a word"
+                    HorizontalOptions="Center"
+                    WidthRequest="150"
+                    HeightRequest="50" />
+
+            <Button Text="Sign in"
+                    Grid.ColumnSpan="3"
+                    HorizontalOptions="End"
+                    Margin="0,0,15,0" />
+            <Button Text="Settings"
+                    HorizontalOptions="Start"
+                    Margin="15,0,0,0" />
+
+            <SearchBar Grid.Row="2"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Placeholder="Search"
+                       Margin="10,0"  />
+
+            <BoxView Grid.Row="6"
+                     Grid.RowSpan="2"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="Beige"
+                     Margin="10,0,10,80" />
+            <BoxView Grid.Row="6"
+                     Grid.RowSpan="2"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
+                Dark={StaticResource DarkNavBarBackground}}"
+                     Margin="10,0,10,80" Opacity="0.5" />
+            <Label Grid.Row="6"
+                   Grid.ColumnSpan="3"
+                   Text="Word of the day"
+                   TextColor="DimGray"
+                   FontSize="30"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,20,0,0"
+                   />
+            <Label Grid.Row="7"
+                   Grid.ColumnSpan="3"
+                   HorizontalTextAlignment="Center"
+                   TextColor="DimGray"
+                   FontSize="50" Text="Fictionary" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

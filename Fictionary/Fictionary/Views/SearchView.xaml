@@ -5,13 +5,36 @@
              x:Class="Fictionary.Views.SearchView"
              Title="Search">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Margin="15"
-                   Text="Welcome to Xamarin.Forms!"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand" />
+        <Grid Margin="10,10,10,60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="45" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0"
+                    Grid.Column="1"
+                    Text="Back"
+                    Margin="15,0,15,0" />
+            <SearchBar Grid.Row="2"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Placeholder="Search" />
+
             <!--CATHERINE: The CollectionView is used to display your items-->
-            <CollectionView>
+            <BoxView Grid.Row="4"
+                     Grid.ColumnSpan="3"
+                     BackgroundColor="WhiteSmoke" />
+            <CollectionView BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
+                Dark={StaticResource DarkNavBarBackground}}" Grid.Row="4" Grid.ColumnSpan="3" Opacity="0.5">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
@@ -24,6 +47,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

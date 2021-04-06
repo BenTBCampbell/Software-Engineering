@@ -21,6 +21,21 @@
         <Color x:Key="DarkNavBarText">White</Color>
         <Color x:Key="DarkPlaceholderText">WhiteSmoke</Color>
         <Color x:Key="DarkBackground">#484848</Color>
+        
+        <!--FontAwesome icons-->
+        <OnPlatform x:Key="IconFont"
+                    x:TypeArguments="x:String">
+            <On Platform="iOS"
+                Value="Font Awesome 5 Free" />
+            <On Platform="Android"
+                Value="Font Awesome.otf#" />
+        </OnPlatform>
+        
+        <FontImage x:Key="SettingsIcon" 
+                   FontFamily="{StaticResource IconFont}"
+                   Glyph="&#xf013;"
+                   Color="WhiteSmoke"
+                   Size="24"/>
 
         <!--Styles for dark theme-->
         <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
@@ -79,7 +94,7 @@
         <Style x:Key="MediumLabels"
                TargetType="Label">
             <Setter Property="FontSize"
-                    Value="Medium" />
+                    Value="Body" />
             <Setter Property="FontAttributes"
                     Value="Bold" />
             <Setter Property="TextColor"

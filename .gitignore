@@ -1,4 +1,4 @@
-# Microsoft Office Tmp files:
+### Microsoft Office ###
 ~$*
 *.tmp
 
@@ -10,6 +10,7 @@ bin/
 obj/
 *.userprefs
 .packages
+App.config
 
 # End of https://www.toptal.com/developers/gitignore/api/xamarinstudio
 

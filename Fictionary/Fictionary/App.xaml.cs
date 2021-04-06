@@ -13,7 +13,7 @@ namespace Fictionary
 
             // Start the application
             Boostrapper.Initialize();
-            MainPage = new NavigationPage(Resolver.Resolve<MainPage>());
+            MainPage = new NavigationPage(Resolver.Resolve<HomeView>());
         }
 
         protected override void OnStart()

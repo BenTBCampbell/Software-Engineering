@@ -12,4 +12,4 @@ If you get the error **file name too long** while trying to clone or pull the pr
 git config --system core.longpaths true
 ```
 
-[Project Info](wiki/Project-Info) (calendar, test users, etc for developers)
+[Project Info](https://github.com/BenTBCampbell/Software-Engineering/wiki/Project-Info): calendar, test users, etc for developers

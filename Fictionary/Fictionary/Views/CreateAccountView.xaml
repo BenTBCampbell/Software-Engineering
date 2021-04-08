@@ -4,7 +4,8 @@
              x:Class="Fictionary.Views.CreateAccountView"
              Title="Create Account">
     <ContentPage.Content>
-        <Grid Margin="15">
+        <ScrollView>
+            <Grid Margin="15">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25" />
                 <RowDefinition Height="2" />
@@ -86,5 +87,6 @@
                 <Button Grid.Column="1" Text="Cancel" />
             </Grid>
         </Grid>
+        </ScrollView> 
     </ContentPage.Content>
 </ContentPage>

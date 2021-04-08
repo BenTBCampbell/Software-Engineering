@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -95,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fictionary\Fictionary.csproj">
-      <Project>{0A5DBC3F-7FE6-4153-9B6A-3ECE604423E7}</Project>
+      <Project>{066A73EB-A5FF-42DD-BC05-A28630216EC4}</Project>
       <Name>Fictionary</Name>
     </ProjectReference>
   </ItemGroup>

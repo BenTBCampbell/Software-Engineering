@@ -4,8 +4,7 @@
              x:Class="Fictionary.Views.HomeView"
              Title="Home">
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource=""
-                     Text="Sign In" />
+        <ToolbarItem Text="Sign In" />
         <ToolbarItem IconImageSource="{StaticResource SettingsIcon}" />
     </ContentPage.ToolbarItems>
     <Grid RowDefinitions="125,50,120,100,*">

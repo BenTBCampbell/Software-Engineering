@@ -12,6 +12,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Fonts\FontAwesome.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\FontAwesome.otf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Autofac" Version="6.1.0" />
 	<PackageReference Include="PropertyChanged.Fody" Version="3.3.3" PrivateAssets="All" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />

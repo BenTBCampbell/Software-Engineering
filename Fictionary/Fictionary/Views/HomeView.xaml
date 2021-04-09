@@ -16,7 +16,7 @@
                HorizontalTextAlignment="Center"
                VerticalTextAlignment="Center">
             <Label.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="3" Command="{Binding OpenMain}" />
+                <TapGestureRecognizer NumberOfTapsRequired="2" Command="{Binding OpenMain}" />
             </Label.GestureRecognizers>
         </Label>
         <Frame Style="{DynamicResource SearchFrame}" Grid.Row="1"

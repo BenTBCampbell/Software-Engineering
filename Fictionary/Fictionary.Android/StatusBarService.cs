@@ -24,7 +24,7 @@ namespace Fictionary.Droid
         /// <param name="color">The color to set</param>
         public void SetStatusBarColor(Color color)
         {
-           CurrentActivity.Window.SetStatusBarColor(color.ToAndroid());
+           CurrentActivity.Window.SetStatusBarColor(color.AddLuminosity(-0.1).ToAndroid());
         }
     }
 }

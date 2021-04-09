@@ -11,12 +11,12 @@ namespace Fictionary.ViewModels
     {
         public ICommand SignInCommand => new Command(async () =>
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         });
 
         public ICommand CancelCommand => new Command(async () =>
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         });
     }
 }

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Fictionary.Views"
+             x:Class="Fictionary.Views.SearchView"
+             Title="Search">
+    <ContentPage.Content>
+        <Grid Margin="10,10,10,60">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Frame Style="{DynamicResource SearchFrame}"><SearchBar Placeholder="Search" /></Frame>
+
+            <!--CATHERINE: The CollectionView is used to display your items-->
+            <BoxView Grid.Row="1"
+                     BackgroundColor="WhiteSmoke" />
+            <CollectionView BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
+                Dark={StaticResource DarkNavBarBackground}}" Grid.Row="1" Opacity="0.5">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView>
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.ItemSelected, Source={x:Reference SearchView}}"
+                                                      CommandParameter="{Binding}" />
+                            </ContentView.GestureRecognizers>
+                            <views:WordItem />
+                        </ContentView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fictionary.Views.WordItem">
+  <ContentView.Content>
+        <!--CATHERINE: This is a ContentView, rather than a ContentPage.
+            Here is where you place the code for how each word/definition should appear in the list of words.
+            We will then apply this to the content template of the collection view in SearchView.-->
+        <StackLayout>
+            <Label Text="{Binding Word, TargetNullValue='Word'}" />
+            <Label Text="{Binding Definition, TargetNullValue='Definition'}" />
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>

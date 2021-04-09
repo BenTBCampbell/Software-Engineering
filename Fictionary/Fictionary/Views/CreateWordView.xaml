@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fictionary.Views.CreateWordView"
+             Title="Add Word">
+    <ContentPage.Content>
+        <Grid Margin="10,20,10,40" ColumnSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="100" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            
+            <Label Grid.Column="0"
+                   Style="{DynamicResource MediumLabels}"
+                   Text="Word:"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="End" />
+            <Entry Grid.Column="1"
+                   Placeholder="word" />
+
+            <Label Grid.Row="1"
+                   Grid.Column="0"
+                   Style="{DynamicResource MediumLabels}"
+                   Text="Definition:"
+                   Margin="0,7,0,0"
+                   HorizontalTextAlignment="End"
+                  />
+            <Editor Grid.Row="1"
+                   Grid.Column="1"
+                   Placeholder="definition"
+                   />
+            
+            <Grid Grid.Row="2"
+                  Grid.ColumnSpan="2"
+                  ColumnDefinitions="*, *"
+                  VerticalOptions="Start"
+                  Margin="0,15,0,0">
+                <Button Text="Add Word"
+                        Command="{Binding AddWord}" />
+                <Button Text="Cancel"
+                        Command="{Binding Cancel}"
+                        Grid.Column="1" />
+            </Grid>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>

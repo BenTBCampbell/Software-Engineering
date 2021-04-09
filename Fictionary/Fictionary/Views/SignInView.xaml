@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fictionary.Views.SignInView"
+             Title="Sign In">
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Label FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   Text="Username" />
+            <Entry Placeholder="Username" />
+            <Label FontSize="Medium"
+                   HorizontalTextAlignment="Center"
+                   Text="Password" />
+            <Entry IsPassword="True"
+                   Placeholder="Password" />
+            <Grid ColumnDefinitions="*, *"
+                  Margin="0,15,0,0">
+                <Button Text="Sign In" />
+                <Button Grid.Column="1"
+                        Text="Cancel" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

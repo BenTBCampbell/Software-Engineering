@@ -2,6 +2,7 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Fictionary.Views;
+using Fictionary.Services;
 
 namespace Fictionary
 {
@@ -10,10 +11,13 @@ namespace Fictionary
         public App()
         {
             InitializeComponent();
+            Boostrapper.Initialize();
 
             // Start the application
-            Boostrapper.Initialize();
-            MainPage = new NavigationPage(Resolver.Resolve<HomeView>());
+            // Also, update the top bar color
+            var navPage = new NavigationPage(Resolver.Resolve<HomeView>());
+            DependencyService.Get<IStatusBarService>().SetStatusBarColor(navPage.BarBackgroundColor);
+            MainPage = navPage;
         }
 
         protected override void OnStart()

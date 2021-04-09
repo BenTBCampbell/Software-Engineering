@@ -83,8 +83,8 @@
                   ColumnDefinitions="*, *"
                   VerticalOptions="Start"
                   Margin="0,15,0,0">
-                <Button Text="Create Account"/>
-                <Button Grid.Column="1" Text="Cancel" />
+                <Button Text="Create Account" Command="{Binding CreateAccountCommand}"/>
+                <Button Grid.Column="1" Text="Cancel" Command="{Binding CancelCommand}" />
             </Grid>
         </Grid>
         </ScrollView> 

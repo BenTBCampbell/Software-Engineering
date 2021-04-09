@@ -22,6 +22,7 @@
         <Color x:Key="DarkPlaceholderText">WhiteSmoke</Color>
         <Color x:Key="DarkBackground">#484848</Color>
 
+        <!--Define icons-->
         <FontImage x:Key="SettingsIcon" 
                    FontFamily="Font Awesome"
                    Glyph="&#xf013;"
@@ -48,24 +49,19 @@
                     Value="{AppThemeBinding Light={StaticResource LightPlaceholderText},
                 Dark={StaticResource DarkPlaceholderText}}" />
         </Style>
+        
+        <!--Styles for search-->
         <Style TargetType="SearchBar"
                ApplyToDerivedTypes="True">
-            <Setter Property="CancelButtonColor" Value="{AppThemeBinding Light={StaticResource LightNavBarText},
-                Dark={StaticResource DarkNavBarText}}"/>
-            <Setter Property="TextColor" 
+            <Setter Property="CancelButtonColor"
+                    Value="{AppThemeBinding Light={StaticResource LightMonoColor},
+                Dark={StaticResource DarkMonoColor}}" />
+            <Setter Property="TextColor"
                     Value="{AppThemeBinding Light={StaticResource LightMonoColor},
                 Dark={StaticResource DarkMonoColor}}" />
             <Setter Property="PlaceholderColor"
                     Value="{AppThemeBinding Light=LightGray,
                 Dark=LightGray}" />
-            <Setter Property="BackgroundColor"
-                    Value="{AppThemeBinding Light={StaticResource LightNavBarBackground},
-                Dark={StaticResource DarkNavBarBackground}}" />
-        </Style>
-        <Style x:Key="SearchFrame" TargetType="Frame">
-            <Setter Property="CornerRadius" Value="10" />
-            <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource LightNavBarBackground}, Dark={StaticResource DarkNavBarBackground}}"/>
-
         </Style>
 
         <!--Define colors for navigation bar-->

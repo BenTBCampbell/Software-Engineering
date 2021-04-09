@@ -36,9 +36,9 @@
                   VerticalOptions="Start"
                   Margin="0,15,0,0">
                 <Button Text="Add Word"
-                        Command="{Binding AddWord}" />
+                        Command="{Binding AddWordCommand}" />
                 <Button Text="Cancel"
-                        Command="{Binding Cancel}"
+                        Command="{Binding CancelCommand}"
                         Grid.Column="1" />
             </Grid>
         </Grid>

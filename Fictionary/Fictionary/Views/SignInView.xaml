@@ -25,9 +25,9 @@
                   ColumnDefinitions="*, *"
                   VerticalOptions="Start"
                   Margin="0,15,0,0">
-                <Button Text="Sign In" />
+                <Button Text="Sign In" Command="{Binding SignInCommand}" />
                 <Button Grid.Column="1"
-                        Text="Cancel" />
+                        Text="Cancel" Command="{Binding CancelCommand}" />
             </Grid>
         </Grid>
     </ContentPage.Content>

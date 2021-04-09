@@ -4,8 +4,10 @@
              x:Class="Fictionary.Views.HomeView"
              Title="Home">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Sign In" />
-        <ToolbarItem IconImageSource="{StaticResource SettingsIcon}" />
+        <ToolbarItem Text="Sign In" Command="{Binding SignInCommand}"/>
+        <ToolbarItem Text="Create Account"
+                     Command="{Binding CreateAccountCommand}" />
+        <ToolbarItem IconImageSource="{StaticResource SettingsIcon}" Command="{Binding ShowSettingsCommand}"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
         <Grid RowDefinitions="100,40,120,100,*">

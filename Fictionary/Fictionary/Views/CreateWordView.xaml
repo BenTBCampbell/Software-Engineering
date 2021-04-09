@@ -4,9 +4,9 @@
              x:Class="Fictionary.Views.CreateWordView"
              Title="Add Word">
     <ContentPage.Content>
-        <Grid Margin="10,20,10,40" ColumnSpacing="10">
+        <Grid Margin="20,15">
             <Grid.RowDefinitions>
-                <RowDefinition Height="auto" />
+                <RowDefinition Height="50" />
                 <RowDefinition Height="100" />
                 <RowDefinition />
             </Grid.RowDefinitions>
@@ -17,8 +17,7 @@
             <Label Grid.Column="0"
                    Style="{DynamicResource MediumLabels}"
                    Text="Word:"
-                   VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="End" />
+                   VerticalTextAlignment="Center"/>
             <Entry Grid.Column="1"
                    Placeholder="word" />
 
@@ -26,14 +25,11 @@
                    Grid.Column="0"
                    Style="{DynamicResource MediumLabels}"
                    Text="Definition:"
-                   Margin="0,7,0,0"
-                   HorizontalTextAlignment="End"
-                  />
+                   Margin="0,10,0,0"/>
             <Editor Grid.Row="1"
                    Grid.Column="1"
                    Placeholder="definition"
                    />
-            
             <Grid Grid.Row="2"
                   Grid.ColumnSpan="2"
                   ColumnDefinitions="*, *"

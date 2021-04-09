@@ -53,19 +53,15 @@
         <!--Styles for search-->
         <Style TargetType="SearchBar"
                ApplyToDerivedTypes="True">
-            <Setter Property="CancelButtonColor" Value="{AppThemeBinding Light={StaticResource LightNavBarText},
-                Dark={StaticResource DarkNavBarText}}"/>
-            <Setter Property="TextColor" 
+            <Setter Property="CancelButtonColor"
+                    Value="{AppThemeBinding Light={StaticResource LightMonoColor},
+                Dark={StaticResource DarkMonoColor}}" />
+            <Setter Property="TextColor"
                     Value="{AppThemeBinding Light={StaticResource LightMonoColor},
                 Dark={StaticResource DarkMonoColor}}" />
             <Setter Property="PlaceholderColor"
                     Value="{AppThemeBinding Light=LightGray,
                 Dark=LightGray}" />
-        </Style>
-        <Style x:Key="SearchFrame" TargetType="Frame">
-            <Setter Property="CornerRadius" Value="10" />
-            <Setter Property="BackgroundColor"
-                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor}, Dark={StaticResource DarkSecondaryColor}}" />
         </Style>
 
         <!--Define colors for navigation bar-->

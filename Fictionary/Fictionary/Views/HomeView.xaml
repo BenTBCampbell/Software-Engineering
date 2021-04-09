@@ -8,55 +8,53 @@
         <ToolbarItem IconImageSource="{StaticResource SettingsIcon}" />
     </ContentPage.ToolbarItems>
     <ScrollView>
-            <Grid RowDefinitions="125,40,120,100,*">
+        <Grid RowDefinitions="100,40,120,100,*">
 
-        <!--App title-->
-        <Label Text="Oxword Fictionary"
-               FontSize="40"
-               HorizontalTextAlignment="Center"
-               VerticalTextAlignment="Center">
-            <Label.GestureRecognizers>
-                <TapGestureRecognizer NumberOfTapsRequired="2" Command="{Binding OpenMain}" />
-            </Label.GestureRecognizers>
-        </Label>
-        <Frame Style="{DynamicResource SearchFrame}" Grid.Row="1"
-               Margin="20,0"
-               Padding="5,10">
-            <SearchBar Placeholder="Search"/>
-        </Frame>
+            <!--App title-->
+            <Label Text="Oxword Fictionary"
+                   FontSize="40"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="2"
+                                          Command="{Binding OpenMainCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            <SearchBar Grid.Row="1"
+                       Placeholder="Search" />
+            <Button Grid.Row="2"
+                    Text="Add Word"
+                    Command="{Binding AddWordCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="150" />
 
-        <Button Grid.Row="2"
-                Text="Add a word"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                WidthRequest="150"
-                 />
-
-        <!--Create background-->
-        <BoxView Grid.Row="3"
+            <!--Create background-->
+            <BoxView Grid.Row="3"
                      Grid.RowSpan="2"
                      BackgroundColor="Beige"
                      Margin="10,0,10,80" />
-        <BoxView Grid.Row="3"
+            <BoxView Grid.Row="3"
                      Grid.RowSpan="2"
                      BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
                 Dark={StaticResource DarkNavBarBackground}}"
-                     Margin="10,0,10,80" Opacity="0.5" />
+                     Margin="10,0,10,80"
+                     Opacity="0.5" />
 
-        <Label Grid.Row="3"
+            <Label Grid.Row="3"
                    Text="Word of the day"
                    TextColor="DimGray"
                    FontSize="30"
                    HorizontalTextAlignment="Center"
-                   Margin="0,20,0,0"
-                   />
+                   Margin="0,20,0,0" />
 
-        <!--Word of the day-->
-        <Label Grid.Row="4"
+            <!--Word of the day-->
+            <Label Grid.Row="4"
                    HorizontalTextAlignment="Center"
                    TextColor="DimGray"
-                   FontSize="50" Text="Fictionary" />
-    </Grid>
+                   FontSize="50"
+                   Text="Fictionary" />
+        </Grid>
 
     </ScrollView>
 </ContentPage>

@@ -10,7 +10,7 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <Frame Style="{DynamicResource SearchFrame}"><SearchBar Placeholder="Search" /></Frame>
+            <SearchBar Placeholder="Search" />
 
             <!--CATHERINE: The CollectionView is used to display your items-->
             <BoxView Grid.Row="1"

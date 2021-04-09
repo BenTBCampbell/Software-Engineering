@@ -10,7 +10,7 @@
         <ToolbarItem IconImageSource="{StaticResource SettingsIcon}" Command="{Binding ShowSettingsCommand}"/>
     </ContentPage.ToolbarItems>
     <ScrollView>
-        <Grid RowDefinitions="100,40,120,100,*">
+        <Grid RowDefinitions="100,40,120,100,200" Padding="10,10,10,25">
 
             <!--App title-->
             <Label Text="Oxword Fictionary"
@@ -35,12 +35,12 @@
             <BoxView Grid.Row="3"
                      Grid.RowSpan="2"
                      BackgroundColor="Beige"
-                     Margin="10,0,10,80" />
+                     Margin="10,0,10,0" />
             <BoxView Grid.Row="3"
                      Grid.RowSpan="2"
                      BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
                 Dark={StaticResource DarkNavBarBackground}}"
-                     Margin="10,0,10,80"
+                     Margin="10,0,10,0"
                      Opacity="0.5" />
 
             <Label Grid.Row="3"

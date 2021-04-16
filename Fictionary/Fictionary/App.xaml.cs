@@ -1,8 +1,8 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Fictionary.Views;
+﻿using Fictionary.Models;
 using Fictionary.Services;
+using Fictionary.Views;
+using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace Fictionary
 {
@@ -22,6 +22,7 @@ namespace Fictionary
 
         protected override void OnStart()
         {
+            MySqlManager.InitializeConnection();
         }
 
         protected override void OnSleep()

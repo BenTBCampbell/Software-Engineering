@@ -28,6 +28,6 @@
         /// <summary>
         /// The person's phone number
         /// </summary>
-        public int Phone { get; set; }
+        public string Phone { get; set; }
     }
 }

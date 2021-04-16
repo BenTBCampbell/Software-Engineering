@@ -20,19 +20,42 @@ namespace Fictionary.Services
             $"pwd={ConfigurationManager.AppSettings["database-password"]};" +
             $"database={ConfigurationManager.AppSettings["database-name"]}";
 
-        static MySQLManager()
+        public static void InitializeConnection()
         {
             Connection = new MySqlConnection(dbConnection);
             Connection.Open();
         }
 
-        public static MySqlDataReader ExecuteQuery(string command)
+        public static List<List<Object>> ExecuteQuery(string command)
         {
-            // Create the command object, to execute SQL commands
+            // Create the command object, to execute SQL commands.
             var sqlCommand = new MySqlCommand() { Connection = Connection, CommandText = command };
 
-            // Gets the words that are currently in the database
-            return sqlCommand.ExecuteReader();
+            // Read all the values and put them into a 2D list
+            var result = new List<List<Object>>();
+            var reader = sqlCommand.ExecuteReader();
+
+            int r = 0;
+            // for each row...
+            while (reader.Read())
+            {
+                // add a new row to results
+                result.Add(new List<Object>());
+
+                // for each column in that row
+                for(int c = 0; c < reader.FieldCount; c++)
+                {
+                    // add that element to the last row in results
+                    result[result.Count - 1].Add(reader.GetValue(c));
+                }
+
+                r++;
+            }
+
+            reader.Close();
+
+            // insert the value into the array at [row, column]
+            return result;
         }
 
         public static int ExecuteNonQuery(string command)

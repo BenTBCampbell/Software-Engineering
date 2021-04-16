@@ -11,9 +11,14 @@
         public int ID { get; set; }
 
         /// <summary>
-        /// The person's name
+        /// The person's first name
         /// </summary>
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// The person's last name
+        /// </summary>
+        public string LastName { get; set; }
 
         /// <summary>
         /// The person's email

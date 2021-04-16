@@ -4,16 +4,18 @@
              x:Class="Fictionary.Views.HomeView"
              Title="Home">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Sign In" Command="{Binding SignInCommand}"/>
-        <ToolbarItem Text="Create Account"
-                     Command="{Binding CreateAccountCommand}" />
-        <ToolbarItem IconImageSource="{StaticResource SettingsIcon}" Command="{Binding ShowSettingsCommand}"/>
+        <!-- <ToolbarItem Text="Sign In" Command="{Binding SignInCommand}"/> -->
+        <!-- <ToolbarItem Text="Create Account"
+                     Command="{Binding CreateAccountCommand}" /> -->
+        <!-- <ToolbarItem IconImageSource="{StaticResource SettingsIcon}" Command="{Binding ShowSettingsCommand}"/> -->
     </ContentPage.ToolbarItems>
     <ScrollView>
-        <Grid RowDefinitions="100,40,120,100,200" Padding="10,10,10,25">
+        <Grid RowDefinitions="10,90,40" Padding="10,10,10,25">
 
             <!--App title-->
-            <Label Text="Oxword Fictionary"
+            <Label Grid.Row="1"
+                   Grid.ColumnSpan="2"
+                   Text="Oxword Fictionary"
                    FontSize="40"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center">
@@ -22,17 +24,35 @@
                                           Command="{Binding OpenMainCommand}" />
                 </Label.GestureRecognizers>
             </Label>
-            <SearchBar Grid.Row="1"
-                       Placeholder="Search" />
-            <Button Grid.Row="2"
+            <SearchBar Grid.Row="2"
+                       Grid.ColumnSpan="2"
+                       Placeholder="Search"
+                       SearchCommand="{Binding SearchCommand}"/>
+            
+            <!--<Button Grid.Row="2"
                     Text="Add Word"
                     Command="{Binding AddWordCommand}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     WidthRequest="150" />
+            <Button Grid.Row="2"
+                    Text="Browse All Words"
+                    Command="{Binding AddWordCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="150" />-->
+            
+            <Grid Grid.Row="3"
+                  Grid.ColumnSpan="2"
+                  ColumnDefinitions="*, *"
+                  VerticalOptions="Start"
+                  Margin="0,15,0,0">
+                <Button x:Name="addWordButton" Text="Add Word" Command="{Binding AddWordCommand}"/>
+                <Button x:Name="browseButton" Grid.Column="1" Text="Browse" Command="{Binding BrowseCommand}" />
+            </Grid>
 
             <!--Create background-->
-            <BoxView Grid.Row="3"
+            <!--<BoxView Grid.Row="3"
                      Grid.RowSpan="2"
                      BackgroundColor="Beige"
                      Margin="10,0,10,0" />
@@ -41,21 +61,21 @@
                      BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
                 Dark={StaticResource DarkNavBarBackground}}"
                      Margin="10,0,10,0"
-                     Opacity="0.5" />
+                     Opacity="0.5" />-->
 
-            <Label Grid.Row="3"
+            <!-- <Label Grid.Row="3"
                    Text="Word of the day"
                    TextColor="DimGray"
                    FontSize="30"
                    HorizontalTextAlignment="Center"
-                   Margin="0,20,0,0" />
+                   Margin="0,20,0,0" /> -->
 
             <!--Word of the day-->
-            <Label Grid.Row="4"
+            <!-- <Label Grid.Row="4"
                    HorizontalTextAlignment="Center"
                    TextColor="DimGray"
                    FontSize="50"
-                   Text="Fictionary" />
+                   Text="Fictionary" /> -->
         </Grid>
 
     </ScrollView>

@@ -34,6 +34,32 @@ namespace Fictionary.ViewModels
             await Navigation.PushModalAsync(view);
         });
 
+        public ICommand BrowseCommand => new Command(async () =>
+        {
+            // Return if Search is already opened
+            int lastEl = Navigation.ModalStack.Count - 1;
+            if ((lastEl != -1) && (Navigation.ModalStack[lastEl].GetType() == typeof(SearchView)))
+            {
+                return;
+            }
+
+            var view = Resolver.Resolve<SearchView>();
+            await Navigation.PushModalAsync(view);
+        });
+
+        public ICommand SearchCommand => new Command(async () =>
+        {
+            // Return if Search is already opened
+            int lastEl = Navigation.ModalStack.Count - 1;
+            if ((lastEl != -1) && (Navigation.ModalStack[lastEl].GetType() == typeof(SearchView)))
+            {
+                return;
+            }
+
+            var view = Resolver.Resolve<SearchView>();
+            await Navigation.PushModalAsync(view);
+        });
+
         public ICommand ShowSettingsCommand => new Command(async () =>
         {
             // Navigate unless ShowSettings is already opened

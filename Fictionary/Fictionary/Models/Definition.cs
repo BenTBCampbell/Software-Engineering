@@ -15,23 +15,37 @@ namespace Fictionary.Models
         public int ID { get; set; }
 
         /// <summary>
-        /// The ID of the word which this definition refers to
+        /// The word this is a defintion for.
         /// </summary>
-        public int WordID { get; set; }
+        public Word Word { get; set; }
 
         /// <summary>
         /// The ID of the user who created the definition
         /// </summary>
-        public int UserID { get; set; }
+        public Account Account { get; set; }
 
+        private string _definitionText;
         /// <summary>
         /// The definition
         /// </summary>
-        public string DefinitionText { get; set; }
+        public string DefinitionText { 
+            get => _definitionText; 
+            set
+            {
+                // TODO: code for setting definitions
+                _definitionText = value;
+            }
+        }
 
         /// <summary>
         /// The total number of upvotes for the definition
         /// </summary>
         public int TotalUpvotes { get; set; }
+
+        public override string ToString()
+        {
+            return $"Definition {{ID: {ID}, Word: \"{Word.WordText}\", Account: \"null\", " +
+                $"DefinitionText: \"{DefinitionText}\" TotalUpvodes: {TotalUpvotes}}}";
+        }
     }
 }

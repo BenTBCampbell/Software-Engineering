@@ -18,6 +18,11 @@ namespace Fictionary.Services
             throw new NotImplementedException();
         }
 
+        public static Account GetAccountFromID(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public static Task DeleteComment(Comment comment)
         {
             throw new NotImplementedException();

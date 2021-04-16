@@ -13,6 +13,16 @@ namespace Fictionary.Models
         public int ID { get; set; }
 
         // The text for the word
-        public string WordText { get; set; }
+        private string _wordText;
+        public string WordText
+        {
+            get => _wordText;
+            set { _wordText = value.ToLower(); }
+        }
+
+        public override string ToString()
+        {
+            return $"Word {{ID: {ID}, WordText: {WordText}}}";
+        }
     }
 }

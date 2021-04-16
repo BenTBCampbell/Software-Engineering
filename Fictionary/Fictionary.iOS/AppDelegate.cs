@@ -27,7 +27,7 @@ namespace Fictionary.iOS
             global::Xamarin.Forms.Forms.Init();
             
             // load App.config
-            ConfigurationManager.Initialise(PCLAppConfig.FileSystemStream.PortableStream.Current);
+            // ConfigurationManager.Initialise(PCLAppConfig.FileSystemStream.PortableStream.Current);
             
             LoadApplication(new App());
             

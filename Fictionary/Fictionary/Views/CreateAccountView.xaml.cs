@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Fictionary.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Fictionary.Models;
 
 namespace Fictionary.Views
 {
@@ -14,9 +15,10 @@ namespace Fictionary.Views
     {
         public CreateAccountView(CreateAccountViewModel viewModel)
         {
+            InitializeComponent();
+            viewModel.Account = new Account() { ContactInfo = new ContactInfo() };
             viewModel.Navigation = Navigation;
             BindingContext = viewModel;
-            InitializeComponent();
         }
     }
 }

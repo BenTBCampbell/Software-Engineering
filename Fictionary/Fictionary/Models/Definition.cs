@@ -33,7 +33,7 @@ namespace Fictionary.Models
             set
             {
                 // TODO: code for setting definitions
-                _definitionText = value;
+                _definitionText = value.ToLower();
             }
         }
 

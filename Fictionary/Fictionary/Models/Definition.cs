@@ -46,8 +46,13 @@ namespace Fictionary.Models
         /// <returns>The string representation of the object</returns>
         public override string ToString()
         {
-            return $"Definition {{ID: {ID}, Word: \"{Word?.WordText}\", Account: \"{Account?.ID}\", " +
-                $"DefinitionText: \"{DefinitionText}\" TotalUpvodes: {TotalUpvotes}}}";
+            var wText = Word == null ? "null" : Word.WordText;
+            var accName = Account == null ? "null" : Account.UserName;
+
+            // trim the text to 100 chars for printing
+            var defText = DefinitionText.Length < 100 ? DefinitionText : DefinitionText.Substring(0, 100) + "...";
+
+            return $"Definition {{ID: {ID}, Word: {wText}, Account: {accName}, DefinitionText: {defText}}}";
         }
     }
 }

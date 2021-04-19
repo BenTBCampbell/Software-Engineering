@@ -58,5 +58,11 @@ namespace Fictionary.Models
         /// All accounts which account is following
         /// </summary>
         public List<Account> FollowedAccounts { get; set; }
+
+        public override string ToString()
+        {
+            var ciID = ContactInfo == null ? "null" : ContactInfo.ID.ToString();
+            return $"Account {{ ID: {ID}, UserName: {UserName}, ContactInfo: {ciID}, IsAdmin: {IsAdmin}}}";
+        }
     }
 }

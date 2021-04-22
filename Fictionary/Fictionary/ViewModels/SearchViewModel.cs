@@ -12,11 +12,13 @@ namespace Fictionary.ViewModels
     {
         public List<Definition> SearchResults { get; set; }
 
-        public ICommand SearchCommand => new Command(async (searchQuery) =>
+        public string SearchQuery { get; set; }
+
+        public ICommand SearchCommand => new Command(async () =>
         {
             List<Word> searchWordResults;
 
-            if ((string)searchQuery == "." || (string)searchQuery == "*")
+            if (SearchQuery == "*")
             {
                 // search for all words
                 searchWordResults = WordService.GetAllWords();
@@ -24,7 +26,7 @@ namespace Fictionary.ViewModels
             else
             {
                 //search for some words using the query.
-                searchWordResults = WordService.SearchForWords((string)searchQuery);
+                searchWordResults = WordService.SearchForWords(SearchQuery);
             }
 
             // sort the words in alphabetical order

@@ -13,7 +13,7 @@
             <!-- The search bar -->
             <SearchBar Placeholder="Search" 
                        SearchCommand="{Binding SearchCommand}" 
-                       SearchCommandParameter="{Binding Text, Source={RelativeSource Self}}" />
+                       Text="{Binding SearchQuery}" />
 
             <!-- CollectionView to display serch results -->
             <BoxView Grid.Row="1"

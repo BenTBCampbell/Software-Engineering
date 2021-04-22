@@ -34,7 +34,7 @@ namespace Fictionary.Models
 
         public override string ToString()
         {
-            return $"ContactInfo {{ ID: {ID}, Name {Name}, Email: {Email}, Phone: {Phone}}}";
+            return $"ContactInfo {{ ID: {ID}, Name {FirstName}, Email: {Email}, Phone: {Phone}}}";
         }
     }
 }

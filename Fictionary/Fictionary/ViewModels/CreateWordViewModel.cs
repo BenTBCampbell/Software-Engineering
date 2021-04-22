@@ -1,10 +1,7 @@
 ﻿using Fictionary.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Fictionary.Services;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Fictionary.Services;
 
 namespace Fictionary.ViewModels
 {
@@ -17,8 +14,12 @@ namespace Fictionary.ViewModels
 
         public ICommand AddWordCommand => new Command(() =>
         {
-            // Add the word to the database
-            WordService.AddDefinition(Definition.Word.WordText, Definition.DefinitionText);
+            if (Definition.Word.WordText != null && Definition.DefinitionText != null)
+            {
+                // Add the word to the database
+                WordService.AddDefinition(Definition.Word.WordText, Definition.DefinitionText);
+            }
+
             Navigation.PopModalAsync();
         });
 

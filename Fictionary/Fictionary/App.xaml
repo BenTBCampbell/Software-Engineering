@@ -121,7 +121,24 @@
             <Setter Property="FontSize"
                     Value="Subtitle" />
             <Setter Property="Margin"
-                    Value="0,0,0,15" />
+                    Value="15,0,0,15" />
+        </Style>
+        
+        <!--Styles for the details page-->
+        <Style TargetType="Label"
+               x:Key="DetailsWord">
+            <Setter Property="FontSize"
+                    Value="36" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor},
+                 Dark={StaticResource DarkSecondaryColor}}" />
+        </Style>
+        <Style TargetType="Label"
+               x:Key="DetailsDefinition">
+            <Setter Property="Margin"
+                    Value="20,0,0,0" />
+            <Setter Property="FontSize"
+                    Value="24" />
         </Style>
     </Application.Resources>
 </Application>

@@ -3,16 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:Fictionary.Views"
              x:Class="Fictionary.Views.SearchView"
+             x:Name="searchView"
              Title="Search">
     <ContentPage.Content>
-        <Grid Margin="10">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             
             <!-- The search bar -->
-            <SearchBar Placeholder="Search" 
+            <SearchBar Margin="0,10,0,0"
+                       Placeholder="Search" 
                        SearchCommand="{Binding SearchCommand}" 
                        Text="{Binding SearchQuery}"
                        TextChanged="SearchBar_TextChanged"
@@ -27,10 +29,10 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
-                            <!--<ContentView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BindingContext.ItemSelected, Source={x:Reference SearchView}}"
-                                                      CommandParameter="{Binding}" />
-                            </ContentView.GestureRecognizers>-->
+                            <ContentView.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.DetailsCommand, Source={x:Reference searchView}}"
+                                                      CommandParameter="{Binding .}" />
+                            </ContentView.GestureRecognizers>
                             <views:WordItem />
                         </ContentView>
                     </DataTemplate>

@@ -7,8 +7,8 @@
             Here is where you place the code for how each word/definition should appear in the list of words.
             We will then apply this to the content template of the collection view in SearchView.-->
         <StackLayout>
-            <Label Text="{Binding Word.WordText, TargetNullValue='Word'}" />
-            <Label Text="{Binding DefinitionText, TargetNullValue='Definition'}" />
+            <Label Style="{DynamicResource ResultWord}" Text="{Binding Word.WordText, TargetNullValue='Word'}" />
+            <Label Style="{DynamicResource ResultDefinition}" Text="{Binding DefinitionText, TargetNullValue='Definition'}" />
         </StackLayout>
   </ContentView.Content>
 </ContentView>

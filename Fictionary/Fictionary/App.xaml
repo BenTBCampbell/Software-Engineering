@@ -109,5 +109,19 @@
             <Setter Property="CornerRadius"
                     Value="5" />
         </Style>
+        
+        <!--Styles for the results page-->
+        <Style TargetType="Label"
+               x:Key="ResultWord">
+            <Setter Property="FontSize"
+                    Value="Title" />
+        </Style>
+        <Style TargetType="Label"
+               x:Key="ResultDefinition">
+            <Setter Property="FontSize"
+                    Value="Subtitle" />
+            <Setter Property="Margin"
+                    Value="0,0,0,15" />
+        </Style>
     </Application.Resources>
 </Application>

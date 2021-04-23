@@ -29,20 +29,10 @@ namespace Fictionary.Models
         /// <summary>
         /// The definition text
         /// </summary>
-<<<<<<< HEAD
-        public string DefinitionText { 
-            get => _definitionText; 
-            set
-            {
-                // TODO: code for setting definitions
-                _definitionText = value.ToLower();
-            }
-=======
         public string DefinitionText
         {
             get => _definitionText;
             set => _definitionText = value.ToLower();
->>>>>>> ce0171af18d6e36135e58ca052dea2408f816a82
         }
 
         /// <summary>

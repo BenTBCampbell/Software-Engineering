@@ -14,9 +14,9 @@ namespace Fictionary.Views
     {
         public SearchView(SearchViewModel viewModel)
         {
+            InitializeComponent();
             viewModel.Navigation = Navigation;
             BindingContext = viewModel;
-            InitializeComponent();
         }
 
         private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)

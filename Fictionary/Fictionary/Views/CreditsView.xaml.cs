@@ -14,9 +14,9 @@ namespace Fictionary.Views
     {
         public CreditsView(CreditsViewModel viewModel)
         {
+            InitializeComponent();
             viewModel.Navigation = Navigation;
             BindingContext = viewModel;
-            InitializeComponent();
         }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using Fictionary.Models;
 using System;
-using System.Diagnostics;
 using System.Collections.Generic;
-using System.Text;
-using Fictionary.Services;
-using MySqlConnector;
 
 namespace Fictionary.Services
 {
@@ -12,7 +8,7 @@ namespace Fictionary.Services
     {
         public static Word GetWordFromID(int id)
         {
-            var result = MySqlManager.ExecuteQuery($"SELECT word_text FROM Word WHERE word_id = \"{id}\"");
+            var result = MySqlManager.GetResults($"SELECT word_text FROM Word WHERE word_id = \"{id}\"");
 
             if (result.Count == 0)
             {
@@ -29,7 +25,7 @@ namespace Fictionary.Services
 
         public static Word GetWord(string word_text)
         {
-            var result = MySqlManager.ExecuteQuery($"SELECT word_id FROM Word WHERE word_text = \"{word_text}\"");
+            var result = MySqlManager.GetResults($"SELECT word_id FROM Word WHERE word_text = \"{word_text}\"");
 
             if (result.Count == 0)
             {
@@ -44,7 +40,7 @@ namespace Fictionary.Services
             return theWord;
             throw new NotImplementedException();
         }
-        
+
         public static bool AddDefinition(string word, string definition)
         {
             // add the word to the database
@@ -59,7 +55,7 @@ namespace Fictionary.Services
             }
 
             // get its id
-            var result = MySqlManager.ExecuteQuery($"SELECT word_id FROM Word WHERE word_text = \"{newWord.WordText}\"");
+            var result = MySqlManager.GetResults($"SELECT word_id FROM Word WHERE word_text = \"{newWord.WordText}\"");
 
             if (result.Count == 0)
             {
@@ -85,7 +81,7 @@ namespace Fictionary.Services
         {
             List<Word> allWords = new List<Word>();
 
-            var result = MySqlManager.ExecuteQuery("SELECT word_id, word_text FROM Word;");
+            var result = MySqlManager.GetResults("SELECT word_id, word_text FROM Word;");
 
             foreach (var row in result)
             {
@@ -103,19 +99,19 @@ namespace Fictionary.Services
 
         public static List<Definition> GetDefinitionsForWord(Word word)
         {
-            List<Definition> allDefinitions = new List<Definition>();
+            List<Definition> allDefinitions = new();
             string query = $"SELECT definition_id, account_id, definition_text " +
                            $"FROM Definition WHERE word_id = {word.ID};";
 
-            var result = MySqlManager.ExecuteQuery(query);
+            var result = MySqlManager.GetResults(query);
 
             foreach (var row in result)
             {
-                Definition definition = new Definition
+                Definition definition = new()
                 {
                     ID = (int)row[0],
                     Word = word,
-                    Account = AccountService.GetAccountFromID((int)row[1]),
+                    // Account = AccountService.GetAccountFromID((int)row[1]),
                     DefinitionText = (string)row[2]
                 };
 
@@ -131,7 +127,7 @@ namespace Fictionary.Services
             List<Word> allWords = new List<Word>();
 
             // get all the words in the database that contain searchText
-            var result = MySqlManager.ExecuteQuery(
+            var result = MySqlManager.GetResults(
                 $"SELECT word_id, word_text FROM Word where word_text like \"%{searchText}%\";");
 
             foreach (var row in result)

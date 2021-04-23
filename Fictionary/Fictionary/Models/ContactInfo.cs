@@ -1,4 +1,6 @@
-﻿namespace Fictionary.Models
+﻿using System;
+
+namespace Fictionary.Models
 {
     /// <summary>
     /// Represents a set of contact information
@@ -29,5 +31,10 @@
         /// The person's phone number
         /// </summary>
         public string Phone { get; set; }
+
+        public override string ToString()
+        {
+            return $"ContactInfo {{ ID: {ID}, Name {FirstName}, Email: {Email}, Phone: {Phone}}}";
+        }
     }
 }

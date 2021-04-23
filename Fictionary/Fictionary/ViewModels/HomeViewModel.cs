@@ -10,6 +10,8 @@ namespace Fictionary.ViewModels
 {
     public class HomeViewModel : ViewModel
     {
+        public string SearchQuery { get; set; }
+
         public ICommand OpenMainCommand => new Command(async () =>
         {
             // Navigate unless MainPage is already opened
@@ -44,6 +46,12 @@ namespace Fictionary.ViewModels
             }
 
             var view = Resolver.Resolve<SearchView>();
+
+            // set the search query in the new page to * (display all words), and execute the search command.
+            var viewModel = view.BindingContext as SearchViewModel;
+            viewModel.SearchQuery = "*";
+            viewModel.SearchCommand.Execute(null);
+
             await Navigation.PushModalAsync(view);
         });
 
@@ -57,6 +65,13 @@ namespace Fictionary.ViewModels
             }
 
             var view = Resolver.Resolve<SearchView>();
+
+            // set the search query in the new page, and execute the search command.
+            var viewModel = view.BindingContext as SearchViewModel;
+            viewModel.SearchQuery = this.SearchQuery;
+            viewModel.SearchCommand.Execute(null);
+
+            // load the new page
             await Navigation.PushModalAsync(view);
         });
 

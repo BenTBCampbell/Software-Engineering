@@ -9,6 +9,8 @@ namespace Fictionary.Models
     /// </summary>
     public class Definition
     {
+        private string _definitionText;
+
         /// <summary>
         /// The unique identifier representing a specific Definition instance
         /// </summary>
@@ -24,10 +26,10 @@ namespace Fictionary.Models
         /// </summary>
         public Account Account { get; set; }
 
-        private string _definitionText;
         /// <summary>
-        /// The definition
+        /// The definition text
         /// </summary>
+<<<<<<< HEAD
         public string DefinitionText { 
             get => _definitionText; 
             set
@@ -35,6 +37,12 @@ namespace Fictionary.Models
                 // TODO: code for setting definitions
                 _definitionText = value.ToLower();
             }
+=======
+        public string DefinitionText
+        {
+            get => _definitionText;
+            set => _definitionText = value.ToLower();
+>>>>>>> ce0171af18d6e36135e58ca052dea2408f816a82
         }
 
         /// <summary>
@@ -42,10 +50,19 @@ namespace Fictionary.Models
         /// </summary>
         public int TotalUpvotes { get; set; }
 
+        /// <summary>
+        /// Returns the string representation of the object
+        /// </summary>
+        /// <returns>The string representation of the object</returns>
         public override string ToString()
         {
-            return $"Definition {{ID: {ID}, Word: \"{Word.WordText}\", Account: \"null\", " +
-                $"DefinitionText: \"{DefinitionText}\" TotalUpvodes: {TotalUpvotes}}}";
+            var wText = Word == null ? "null" : Word.WordText;
+            var accName = Account == null ? "null" : Account.UserName;
+
+            // trim the text to 100 chars for printing
+            var defText = DefinitionText.Length < 100 ? DefinitionText : DefinitionText.Substring(0, 100) + "...";
+
+            return $"Definition {{ID: {ID}, Word: {wText}, Account: {accName}, DefinitionText: {defText}}}";
         }
     }
 }

@@ -9,17 +9,24 @@ namespace Fictionary.Models
     /// </summary>
     public class Word
     {
+        private string _wordText;
+
         // The unique identifier representing a specific Word instance
         public int ID { get; set; }
 
-        // The text for the word
-        private string _wordText;
+        /// <summary>
+        /// The Word's text
+        /// </summary>
         public string WordText
         {
             get => _wordText;
             set { _wordText = value.ToLower(); }
         }
 
+        /// <summary>
+        /// Returns the string representation of the object
+        /// </summary>
+        /// <returns>The string representation of the object</returns>
         public override string ToString()
         {
             return $"Word {{ID: {ID}, WordText: {WordText}}}";

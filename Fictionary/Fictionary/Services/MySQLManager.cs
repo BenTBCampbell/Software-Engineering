@@ -26,13 +26,18 @@ namespace Fictionary.Services
             Connection.Open();
         }
 
-        public static List<List<Object>> ExecuteQuery(string command)
+        /// <summary>
+        /// Requests information from the database
+        /// </summary>
+        /// <param name="command">The SQL command</param>
+        /// <returns>A 2D list of the results</returns>
+        public static List<List<object>> GetResults(string command)
         {
             // Create the command object, to execute SQL commands.
             var sqlCommand = new MySqlCommand() { Connection = Connection, CommandText = command };
 
             // Read all the values and put them into a 2D list
-            var result = new List<List<Object>>();
+            var result = new List<List<object>>();
             var reader = sqlCommand.ExecuteReader();
 
             int r = 0;
@@ -40,7 +45,7 @@ namespace Fictionary.Services
             while (reader.Read())
             {
                 // add a new row to results
-                result.Add(new List<Object>());
+                result.Add(new List<object>());
 
                 // for each column in that row
                 for(int c = 0; c < reader.FieldCount; c++)

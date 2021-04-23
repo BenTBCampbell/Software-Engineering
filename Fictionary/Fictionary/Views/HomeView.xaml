@@ -27,7 +27,8 @@
             <SearchBar Grid.Row="2"
                        Grid.ColumnSpan="2"
                        Placeholder="Search"
-                       SearchCommand="{Binding SearchCommand}"/>
+                       SearchCommand="{Binding SearchCommand}"
+                       Text="{Binding SearchQuery}"/>
             
             <!--<Button Grid.Row="2"
                     Text="Add Word"

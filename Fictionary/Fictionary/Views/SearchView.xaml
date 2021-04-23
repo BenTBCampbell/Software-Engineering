@@ -14,14 +14,16 @@
             <!-- The search bar -->
             <SearchBar Placeholder="Search" 
                        SearchCommand="{Binding SearchCommand}" 
-                       Text="{Binding SearchQuery}" />
+                       Text="{Binding SearchQuery}"
+                       TextChanged="SearchBar_TextChanged"
+                       />
 
             <!-- CollectionView to display search results -->
             <CollectionView ItemsSource="{Binding SearchResults}"
                             Grid.Row="1" 
                             Opacity="0.5"
                             Margin="10"
-                            EmptyView="No results found. Search * to display all words.">
+                            EmptyView="No results found">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>

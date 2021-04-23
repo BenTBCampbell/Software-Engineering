@@ -49,7 +49,7 @@ namespace Fictionary.ViewModels
 
             // set the search query in the new page to * (display all words), and execute the search command.
             var viewModel = view.BindingContext as SearchViewModel;
-            viewModel.SearchQuery = "*";
+            viewModel.SearchQuery = string.Empty;
             viewModel.SearchCommand.Execute(null);
 
             await Navigation.PushModalAsync(view);

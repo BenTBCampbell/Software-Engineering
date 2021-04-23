@@ -18,5 +18,18 @@ namespace Fictionary.Views
             BindingContext = viewModel;
             InitializeComponent();
         }
+
+        private async void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Update search whenever a key is pressed
+            // First wait a little to make sure no more keys are pressed
+            await Task.Delay(150);
+            var viewModel = (SearchViewModel)BindingContext;
+
+            if (e.NewTextValue == viewModel.SearchQuery)
+            {
+                viewModel.SearchCommand.Execute(null);
+            }
+        }
     }
 }

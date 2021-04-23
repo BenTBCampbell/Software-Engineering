@@ -18,7 +18,7 @@ namespace Fictionary.ViewModels
         {
             List<Word> searchWordResults;
 
-            if (SearchQuery == "*")
+            if (string.IsNullOrWhiteSpace(SearchQuery))
             {
                 // search for all words
                 searchWordResults = WordService.GetAllWords();

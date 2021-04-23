@@ -1,49 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:Fictionary.Views"
              x:Class="Fictionary.Views.SearchView"
+             x:Name="searchView"
              Title="Search">
     <ContentPage.Content>
-        <Grid Margin="10,10,10,60">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             
             <!-- The search bar -->
-            <SearchBar Placeholder="Search" 
+            <SearchBar Margin="0,10,0,0"
+                       Placeholder="Search" 
                        SearchCommand="{Binding SearchCommand}" 
-                       Text="{Binding SearchQuery}" />
+                       Text="{Binding SearchQuery}"
+                       TextChanged="SearchBar_TextChanged"
+                       />
 
-            <!-- CollectionView to display serch results -->
-            <BoxView Grid.Row="1"
-                     BackgroundColor="WhiteSmoke" />
-            <CollectionView BackgroundColor="DarkOrange" 
-                            ItemsSource="{Binding SearchResults}"
+            <!-- CollectionView to display search results -->
+            <CollectionView ItemsSource="{Binding SearchResults}"
                             Grid.Row="1" 
                             Opacity="0.5"
-                            EmptyView="No results found. Search * to display all words.">
+                            Margin="10"
+                            EmptyView="No results found">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Label Grid.Row="0"
-                                   Text="{Binding Word.WordText, TargetNullValue='Word'}"
-                                   FontAttributes="Bold" />
-                            <Label Grid.Row="1"
-                                   Text="{Binding DefinitionText, TargetNullValue='Definition'}"
-                                   FontAttributes="Italic"/>
-                        </Grid>
-                        <!--<ContentView>
+                        <ContentView>
                             <ContentView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BindingContext.ItemSelected, Source={x:Reference SearchView}}"
-                                                      CommandParameter="{Binding}" />
+                                <TapGestureRecognizer Command="{Binding BindingContext.DetailsCommand, Source={x:Reference searchView}}"
+                                                      CommandParameter="{Binding .}" />
                             </ContentView.GestureRecognizers>
                             <views:WordItem />
-                        </ContentView>-->
+                        </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

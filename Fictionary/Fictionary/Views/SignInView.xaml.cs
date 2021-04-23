@@ -14,9 +14,9 @@ namespace Fictionary.Views
     {
         public SignInView(SignInViewModel viewModel)
         {
+            InitializeComponent();
             viewModel.Navigation = Navigation;
             BindingContext = viewModel;
-            InitializeComponent();
         }
     }
 }

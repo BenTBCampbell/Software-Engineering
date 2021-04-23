@@ -4,10 +4,9 @@
              x:Class="Fictionary.Views.DetailsView"
              Title="Word Details">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="20">
+            <Label Style="{DynamicResource DetailsWord}" Text="{Binding Definition.Word.WordText}"/>
+            <Label Style="{DynamicResource DetailsDefinition}" Text="{Binding Definition.DefinitionText}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

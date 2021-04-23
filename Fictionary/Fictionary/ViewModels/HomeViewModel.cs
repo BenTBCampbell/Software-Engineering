@@ -38,41 +38,38 @@ namespace Fictionary.ViewModels
 
         public ICommand BrowseCommand => new Command(async () =>
         {
-            // Return if Search is already opened
-            int lastEl = Navigation.ModalStack.Count - 1;
-            if ((lastEl != -1) && (Navigation.ModalStack[lastEl].GetType() == typeof(SearchView)))
+            // Navigate unless Search is already opened
+            int lastEl = Navigation.NavigationStack.Count - 1;
+            if (Navigation.NavigationStack[lastEl].GetType() != typeof(SearchView))
             {
-                return;
+                var view = Resolver.Resolve<SearchView>();
+
+                // set the search query in the new page, and execute the search command.
+                var viewModel = view.BindingContext as SearchViewModel;
+                viewModel.SearchQuery = string.Empty;
+                viewModel.SearchCommand.Execute(null);
+
+                // load the new page
+                await Navigation.PushAsync(view);
             }
-
-            var view = Resolver.Resolve<SearchView>();
-
-            // set the search query in the new page to * (display all words), and execute the search command.
-            var viewModel = view.BindingContext as SearchViewModel;
-            viewModel.SearchQuery = "*";
-            viewModel.SearchCommand.Execute(null);
-
-            await Navigation.PushModalAsync(view);
         });
 
         public ICommand SearchCommand => new Command(async () =>
         {
-            // Return if Search is already opened
-            int lastEl = Navigation.ModalStack.Count - 1;
-            if ((lastEl != -1) && (Navigation.ModalStack[lastEl].GetType() == typeof(SearchView)))
+            // Navigate unless Search is already opened
+            int lastEl = Navigation.NavigationStack.Count - 1;
+            if (Navigation.NavigationStack[lastEl].GetType() != typeof(SearchView))
             {
-                return;
+                var view = Resolver.Resolve<SearchView>();
+
+                // set the search query in the new page, and execute the search command.
+                var viewModel = view.BindingContext as SearchViewModel;
+                viewModel.SearchQuery = this.SearchQuery;
+                viewModel.SearchCommand.Execute(null);
+
+                // load the new page
+                await Navigation.PushAsync(view);
             }
-
-            var view = Resolver.Resolve<SearchView>();
-
-            // set the search query in the new page, and execute the search command.
-            var viewModel = view.BindingContext as SearchViewModel;
-            viewModel.SearchQuery = this.SearchQuery;
-            viewModel.SearchCommand.Execute(null);
-
-            // load the new page
-            await Navigation.PushModalAsync(view);
         });
 
         public ICommand ShowSettingsCommand => new Command(async () =>

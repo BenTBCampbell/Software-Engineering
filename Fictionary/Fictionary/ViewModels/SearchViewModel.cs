@@ -1,5 +1,6 @@
 ﻿using Fictionary.Models;
 using Fictionary.Services;
+using Fictionary.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,7 +19,7 @@ namespace Fictionary.ViewModels
         {
             List<Word> searchWordResults;
 
-            if (SearchQuery == "*")
+            if (string.IsNullOrWhiteSpace(SearchQuery))
             {
                 // search for all words
                 searchWordResults = WordService.GetAllWords();
@@ -53,6 +54,21 @@ namespace Fictionary.ViewModels
             }
 
             SearchResults = searchDefinitions;
+        });
+
+        public ICommand DetailsCommand => new Command(async (x) =>
+        {
+            // Only continue if Details is not already open
+            int lastEl = Navigation.NavigationStack.Count - 1;
+            if (Navigation.NavigationStack[lastEl].GetType() != typeof(DetailsView))
+            {
+                var view = Resolver.Resolve<DetailsView>();
+                var viewModel = (DetailsViewModel)view.BindingContext;
+
+                // Set the definition and navigate to the details page
+                viewModel.Definition = (Definition)x;
+                await Navigation.PushAsync(view);
+            }
         });
     }
 }

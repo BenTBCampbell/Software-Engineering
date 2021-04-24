@@ -43,6 +43,19 @@ namespace Fictionary.Services
 
         public static bool AddDefinition(string word, string definition)
         {
+            if
+                (
+                // if the word or defintion is empty...
+                String.IsNullOrEmpty(word) || String.IsNullOrEmpty(definition)
+
+                // or it contains bad words...
+                || ! Services.Filter.IsClean(word) || ! Services.Filter.IsClean(definition)
+                )
+            {
+                // don't add it
+                return false;
+            }
+
             // add the word to the database
             Word newWord = new Word();
             newWord.WordText = word;

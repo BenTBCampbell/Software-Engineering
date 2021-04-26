@@ -27,10 +27,12 @@ namespace Fictionary
 
         protected override void OnSleep()
         {
+            MySqlManager.CloseConnection();
         }
 
         protected override void OnResume()
         {
+            MySqlManager.InitializeConnection();
         }
     }
 }

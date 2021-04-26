@@ -6,6 +6,11 @@ namespace Fictionary.Services
 {
     public static class WordService
     {
+        /// <summary>
+        /// Gets a word from the database by its id
+        /// </summary>
+        /// <param name="id">The id of the word</param>
+        /// <returns>The word</returns>
         public static Word GetWordFromID(int id)
         {
             var result = MySqlManager.GetResults($"SELECT word_text FROM Word WHERE word_id = \"{id}\"");
@@ -23,6 +28,11 @@ namespace Fictionary.Services
             return theWord;
         }
 
+        /// <summary>
+        /// Gets a word from the database by the word text
+        /// </summary>
+        /// <param name="word_text">The word text</param>
+        /// <returns>The word</returns>
         public static Word GetWord(string word_text)
         {
             var result = MySqlManager.GetResults($"SELECT word_id FROM Word WHERE word_text = \"{word_text}\"");
@@ -38,14 +48,19 @@ namespace Fictionary.Services
             theWord.WordText = word_text;
 
             return theWord;
-            throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Adds a definition to the database
+        /// </summary>
+        /// <param name="word">The word text</param>
+        /// <param name="definition">The definition text</param>
+        /// <returns>If the definition was successfully added</returns>
         public static bool AddDefinition(string word, string definition)
         {
             if
                 (
-                // if the word or defintion is empty...
+                // if the word or definition is empty...
                 String.IsNullOrEmpty(word) || String.IsNullOrEmpty(definition)
 
                 // or it contains bad words...
@@ -57,39 +72,40 @@ namespace Fictionary.Services
             }
 
             // add the word to the database
-            Word newWord = new Word();
-            newWord.WordText = word;
+            Word newWord = new() { WordText = word};
 
-            bool insertWordSucceeded = MySqlManager.ExecuteNonQuery($"INSERT IGNORE INTO Word (word_text) VALUES (\"{newWord.WordText}\");") != 0;
+            // add the word to the database (if it doesn't already exist)
+            MySqlManager.ModifyDatabase(
+                $"INSERT IGNORE INTO Word (word_text) VALUES (\"{newWord.WordText}\");");
 
-            if (!insertWordSucceeded)
-            {
-                return false;
-            }
-
-            // get its id
+            // get its id so we can link the definition to it
             var result = MySqlManager.GetResults($"SELECT word_id FROM Word WHERE word_text = \"{newWord.WordText}\"");
-
             if (result.Count == 0)
             {
                 // no result came up, something went wrong when adding the word.
                 return false;
             }
 
+            // set the id in the new word object so we can use it in the definition later
             newWord.ID = (int)result[0][0];
 
-            // add the definition to the database
-            Definition newDefinition = new Definition();
-            newDefinition.Word = newWord;
-            newDefinition.DefinitionText = definition;
+            Definition newDefinition = new()
+            {
+                Word = newWord,
+                DefinitionText = definition
+            };
 
+            // add the definition to the database
             string addDefinitionQuery = $"INSERT INTO Definition (definition_text, word_id) " +
                 $"VALUES (\"{newDefinition.DefinitionText}\", {newDefinition.Word.ID})";
-            bool insertDefinitionSucceeded = MySqlManager.ExecuteNonQuery(addDefinitionQuery) != 0;
-
+            bool insertDefinitionSucceeded = MySqlManager.ModifyDatabase(addDefinitionQuery) != 0;
             return insertDefinitionSucceeded;
         }
 
+        /// <summary>
+        /// Get all the words from the database
+        /// </summary>
+        /// <returns></returns>
         public static List<Word> GetAllWords()
         {
             List<Word> allWords = new List<Word>();

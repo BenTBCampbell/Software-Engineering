@@ -12,14 +12,31 @@ namespace Fictionary.Services
     /// </summary>
     public static class MySqlManager
     {
+        /// <summary>
+        /// The connection to the database
+        /// </summary>
         private static MySqlConnection Connection;
 
+        /// <summary>
+        /// The string to connect to the database
+        /// </summary>
         private static string dbConnection =
             $"server={ConfigurationManager.AppSettings["database-ip"]};" +
             $"uid={ConfigurationManager.AppSettings["database-username"]};" +
             $"pwd={ConfigurationManager.AppSettings["database-password"]};" +
             $"database={ConfigurationManager.AppSettings["database-name"]}";
 
+        /// <summary>
+        /// Closes the connection to the database
+        /// </summary>
+        public static void CloseConnection()
+        {
+            Connection.Close();
+        }
+
+        /// <summary>
+        /// Creates a new connection to the database and opens it
+        /// </summary>
         public static void InitializeConnection()
         {
             Connection = new MySqlConnection(dbConnection);
@@ -63,7 +80,12 @@ namespace Fictionary.Services
             return result;
         }
 
-        public static int ExecuteNonQuery(string command)
+        /// <summary>
+        /// Executes commands that modify the database
+        /// </summary>
+        /// <param name="command">The SQL command to execute</param>
+        /// <returns>The number of rows modified</returns>
+        public static int ModifyDatabase(string command)
         {
             var sqlCommand = new MySqlCommand() { Connection = Connection, CommandText = command };
             return sqlCommand.ExecuteNonQuery();

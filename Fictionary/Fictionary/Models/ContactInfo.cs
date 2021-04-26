@@ -32,6 +32,10 @@ namespace Fictionary.Models
         /// </summary>
         public string Phone { get; set; }
 
+        /// <summary>
+        /// Returns string representation of the object
+        /// </summary>
+        /// <returns> The string representation of the object </returns>
         public override string ToString()
         {
             return $"ContactInfo {{ ID: {ID}, Name {FirstName}, Email: {Email}, Phone: {Phone}}}";

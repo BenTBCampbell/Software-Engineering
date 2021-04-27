@@ -59,6 +59,10 @@ namespace Fictionary.Models
         /// </summary>
         public List<Account> FollowedAccounts { get; set; }
 
+        /// <summary>
+        /// Returns string representation of the object
+        /// </summary>
+        /// <returns> The string representation of the object </returns>
         public override string ToString()
         {
             var ciID = ContactInfo == null ? "null" : ContactInfo.ID.ToString();

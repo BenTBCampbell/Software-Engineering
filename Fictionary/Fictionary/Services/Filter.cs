@@ -73,7 +73,6 @@ namespace Fictionary.Services
             builder.Replace("2", "r");
             builder.Replace("5", "s");
             builder.Replace("7", "t");
-            builder.Replace(" ", "");
 
             // Now remove bad words
             foreach (string item in blacklist)

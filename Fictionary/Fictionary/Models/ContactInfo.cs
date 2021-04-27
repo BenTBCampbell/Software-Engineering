@@ -13,9 +13,14 @@ namespace Fictionary.Models
         public int ID { get; set; }
 
         /// <summary>
-        /// The person's name
+        /// The person's first name
         /// </summary>
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// The person's last name
+        /// </summary>
+        public string LastName { get; set; }
 
         /// <summary>
         /// The person's email
@@ -25,11 +30,15 @@ namespace Fictionary.Models
         /// <summary>
         /// The person's phone number
         /// </summary>
-        public Int64 Phone { get; set; }
+        public string Phone { get; set; }
 
+        /// <summary>
+        /// Returns string representation of the object
+        /// </summary>
+        /// <returns> The string representation of the object </returns>
         public override string ToString()
         {
-            return $"ContactInfo {{ ID: {ID}, Name {Name}, Email: {Email}, Phone: {Phone}}}";
+            return $"ContactInfo {{ ID: {ID}, Name {FirstName}, Email: {Email}, Phone: {Phone}}}";
         }
     }
 }

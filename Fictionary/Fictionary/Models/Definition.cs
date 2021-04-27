@@ -9,6 +9,8 @@ namespace Fictionary.Models
     /// </summary>
     public class Definition
     {
+        private string _definitionText;
+
         /// <summary>
         /// The unique identifier representing a specific Definition instance
         /// </summary>
@@ -24,17 +26,13 @@ namespace Fictionary.Models
         /// </summary>
         public Account Account { get; set; }
 
-        private string _definitionText;
         /// <summary>
-        /// The definition
+        /// The definition text
         /// </summary>
-        public string DefinitionText { 
-            get => _definitionText; 
-            set
-            {
-                // TODO: code for setting definitions
-                _definitionText = value;
-            }
+        public string DefinitionText
+        {
+            get => _definitionText;
+            set => _definitionText = value.ToLower();
         }
 
         /// <summary>
@@ -42,6 +40,10 @@ namespace Fictionary.Models
         /// </summary>
         public int TotalUpvotes { get; set; }
 
+        /// <summary>
+        /// Returns the string representation of the object
+        /// </summary>
+        /// <returns>The string representation of the object</returns>
         public override string ToString()
         {
             var wText = Word == null ? "null" : Word.WordText;

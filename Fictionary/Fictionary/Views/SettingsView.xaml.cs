@@ -14,9 +14,9 @@ namespace Fictionary.Views
     {
         public SettingsView(SettingsViewModel viewModel)
         {
+            InitializeComponent();
             viewModel.Navigation = Navigation;
             BindingContext = viewModel;
-            InitializeComponent();
         }
     }
 }

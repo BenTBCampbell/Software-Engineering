@@ -14,9 +14,9 @@ namespace Fictionary.Views
     {
         public HomeView(HomeViewModel viewModel)
         {
+            InitializeComponent();
             viewModel.Navigation = Navigation;
             BindingContext = viewModel;
-            InitializeComponent();
         }
     }
 }

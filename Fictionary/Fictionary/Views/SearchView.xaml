@@ -3,32 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:views="clr-namespace:Fictionary.Views"
              x:Class="Fictionary.Views.SearchView"
+             x:Name="searchView"
              Title="Search">
     <ContentPage.Content>
-        <Grid Margin="10,10,10,60">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <SearchBar Placeholder="Search" />
+            
+            <!-- The search bar -->
+            <SearchBar Margin="0,10,0,0"
+                       Placeholder="Search" 
+                       SearchCommand="{Binding SearchCommand}" 
+                       Text="{Binding SearchQuery}"
+                       TextChanged="SearchBar_TextChanged"
+                       />
 
-            <!--CATHERINE: The CollectionView is used to display your items-->
-            <BoxView Grid.Row="1"
-                     BackgroundColor="WhiteSmoke" />
-            <CollectionView BackgroundColor="{AppThemeBinding Light={StaticResource LightNavBarBackground},
-                Dark={StaticResource DarkNavBarBackground}}" Grid.Row="1" Opacity="0.5">
+            <!-- CollectionView to display search results -->
+            <CollectionView ItemsSource="{Binding SearchResults}"
+                            Grid.Row="1" 
+                            Opacity="0.5"
+                            Margin="10"
+                            EmptyView="No results found">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <ContentView>
                             <ContentView.GestureRecognizers>
-                                <TapGestureRecognizer Command="{Binding BindingContext.ItemSelected, Source={x:Reference SearchView}}"
-                                                      CommandParameter="{Binding}" />
+                                <TapGestureRecognizer Command="{Binding BindingContext.DetailsCommand, Source={x:Reference searchView}}"
+                                                      CommandParameter="{Binding .}" />
                             </ContentView.GestureRecognizers>
                             <views:WordItem />
                         </ContentView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

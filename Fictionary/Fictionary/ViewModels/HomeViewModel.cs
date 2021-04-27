@@ -10,6 +10,8 @@ namespace Fictionary.ViewModels
 {
     public class HomeViewModel : ViewModel
     {
+        public string SearchQuery { get; set; }
+
         public ICommand OpenMainCommand => new Command(async () =>
         {
             // Navigate unless MainPage is already opened
@@ -32,6 +34,42 @@ namespace Fictionary.ViewModels
 
             var view = Resolver.Resolve<CreateWordView>();
             await Navigation.PushModalAsync(view);
+        });
+
+        public ICommand BrowseCommand => new Command(async () =>
+        {
+            // Navigate unless Search is already opened
+            int lastEl = Navigation.NavigationStack.Count - 1;
+            if (Navigation.NavigationStack[lastEl].GetType() != typeof(SearchView))
+            {
+                var view = Resolver.Resolve<SearchView>();
+
+                // set the search query in the new page, and execute the search command.
+                var viewModel = view.BindingContext as SearchViewModel;
+                viewModel.SearchQuery = string.Empty;
+                viewModel.SearchCommand.Execute(null);
+
+                // load the new page
+                await Navigation.PushAsync(view);
+            }
+        });
+
+        public ICommand SearchCommand => new Command(async () =>
+        {
+            // Navigate unless Search is already opened
+            int lastEl = Navigation.NavigationStack.Count - 1;
+            if (Navigation.NavigationStack[lastEl].GetType() != typeof(SearchView))
+            {
+                var view = Resolver.Resolve<SearchView>();
+
+                // set the search query in the new page, and execute the search command.
+                var viewModel = view.BindingContext as SearchViewModel;
+                viewModel.SearchQuery = this.SearchQuery;
+                viewModel.SearchCommand.Execute(null);
+
+                // load the new page
+                await Navigation.PushAsync(view);
+            }
         });
 
         public ICommand ShowSettingsCommand => new Command(async () =>

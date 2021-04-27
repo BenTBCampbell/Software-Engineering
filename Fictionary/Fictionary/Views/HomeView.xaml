@@ -13,17 +13,16 @@
         <Grid RowDefinitions="10,90,40" Padding="10,10,10,25">
 
             <!--App title-->
-            <Label Grid.Row="1"
+            <Image Grid.Row="1"
                    Grid.ColumnSpan="2"
-                   Text="Oxword Fictionary"
-                   FontSize="40"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center">
-                <Label.GestureRecognizers>
+                   Source="wordslogo2.png"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Image.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="2"
                                           Command="{Binding OpenMainCommand}" />
-                </Label.GestureRecognizers>
-            </Label>
+                </Image.GestureRecognizers>
+            </Image>
             <SearchBar Grid.Row="2"
                        Grid.ColumnSpan="2"
                        Placeholder="Search"

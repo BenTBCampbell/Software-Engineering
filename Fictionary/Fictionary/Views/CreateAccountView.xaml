@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Fictionary.Views.CreateAccountView"
+             Title="Create Account">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="35" />
+                <RowDefinition Height="2" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.ColumnSpan="2" HorizontalTextAlignment="Center"
+                   Text="Basic Information" TextColor="{AppThemeBinding Light={StaticResource LightMonoColor}, Dark={StaticResource DarkMonoColor}}"/>
+            <Line Grid.Row="1"
+                  Grid.ColumnSpan="2"
+                  BackgroundColor="{AppThemeBinding Light={StaticResource LightMonoColor}, Dark={StaticResource DarkMonoColor}}"></Line>
+            <Label Grid.Row="2" VerticalOptions="Center" Style="{DynamicResource MediumLabels}" Text="First Name:" />
+            <Entry Grid.Row="2"
+                   Grid.Column="1"
+                   Placeholder="John"
+                   Text="{Binding Account.ContactInfo.FirstName}"/>
+            <Label Grid.Row="3"
+                    VerticalOptions="Center" Style="{DynamicResource MediumLabels}"
+                   Text="Last Name:" />
+            <Entry Grid.Row="3"
+                   Grid.Column="1"
+                   Placeholder="Doe"
+                   Text="{Binding Account.ContactInfo.LastName}"/>
+            <Label Grid.Row="4"
+                   VerticalOptions="Center" Style="{DynamicResource MediumLabels}" Text="Email:" />
+            <Entry Grid.Row="4" Grid.Column="1"
+                   Placeholder="jdoe@gmail.com"
+                   Text="{Binding Account.ContactInfo.Email}"/>
+            <Label Grid.Row="5" VerticalOptions="Center" Style="{DynamicResource MediumLabels}"
+                   Text="Phone:" />
+            <Entry Grid.Row="5"
+                   Grid.Column="1"
+                   Placeholder="(000) 000-0000"
+                   Text="{Binding Account.ContactInfo.Phone}"/>
+            <Label Grid.Row="6" Margin="0,10,0,0"
+                   Grid.ColumnSpan="2"
+                   HorizontalTextAlignment="Center"
+                   Text="Account"
+                   TextColor="{AppThemeBinding Light={StaticResource LightMonoColor}, Dark={StaticResource DarkMonoColor}}" />
+            <Line Grid.Row="7"
+                  Grid.ColumnSpan="2"
+                  BackgroundColor="{AppThemeBinding Light={StaticResource LightMonoColor}, Dark={StaticResource DarkMonoColor}}"></Line>
+            <Label Grid.Row="8"
+                   VerticalOptions="Center"
+                   Style="{DynamicResource MediumLabels}"
+                   Text="Username:" />
+            <Entry Grid.Row="8"
+                   Grid.Column="1"
+                   Placeholder="jdoe" Text="{Binding Account.UserName}" />
+            <Label Grid.Row="9"
+                   VerticalOptions="Center"
+                   Style="{DynamicResource MediumLabels}"
+                   Text="Password:" />
+            <Entry Grid.Row="9"
+                   Grid.Column="1"
+                   IsPassword="True" Placeholder="Password"
+                   Text="{Binding Account.Password}"/>
+            <Label Grid.Row="10"
+                   VerticalOptions="Center"
+                   Style="{DynamicResource MediumLabels}"
+                   Text="Confirm Password:" />
+            <Entry Grid.Row="10"
+                   Grid.Column="1"
+                   x:Name="confirmPassword"
+                   IsPassword="True"
+                   Placeholder="Password"
+                   Text="{Binding ConfirmPassword}"
+                   />
+            <Grid Grid.Row="11"
+                  Grid.ColumnSpan="2"
+                  ColumnDefinitions="*, *"
+                  VerticalOptions="Start"
+                  Margin="0,15,0,0">
+                <Button x:Name="createAccountButton" Text="Create Account" Command="{Binding CreateAccountCommand}"/>
+                <Button x:Name="cancelButton" Grid.Column="1" Text="Cancel" Command="{Binding CancelCommand}" />
+            </Grid>
+        </Grid>
+        </ScrollView> 
+    </ContentPage.Content>
+</ContentPage>

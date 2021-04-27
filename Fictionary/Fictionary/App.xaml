@@ -4,5 +4,141 @@
              x:Class="Fictionary.App">
     <Application.Resources>
 
+        <!--Define colors for light theme-->
+        <Color x:Key="LightPrimaryColor">White</Color>
+        <Color x:Key="LightSecondaryColor">DarkOrange</Color>
+        <Color x:Key="LightMonoColor">#484848</Color>
+        <Color x:Key="LightNavBarBackground">DarkOrange</Color>
+        <Color x:Key="LightNavBarText">White</Color>
+        <Color x:Key="LightPlaceholderText">DarkGray</Color>
+        <Color x:Key="LightBackground">WhiteSmoke</Color>
+
+        <!--Define colors for dark theme-->
+        <Color x:Key="DarkPrimaryColor">Gray</Color>
+        <Color x:Key="DarkSecondaryColor">WhiteSmoke</Color>
+        <Color x:Key="DarkMonoColor">WhiteSmoke</Color>
+        <Color x:Key="DarkNavBarBackground">DarkOrange</Color>
+        <Color x:Key="DarkNavBarText">White</Color>
+        <Color x:Key="DarkPlaceholderText">WhiteSmoke</Color>
+        <Color x:Key="DarkBackground">#484848</Color>
+
+        <!--Define icons-->
+        <FontImage x:Key="SettingsIcon" 
+                   FontFamily="Font Awesome"
+                   Glyph="&#xf013;"
+                   Size="24"/>
+
+        <!--Styles for dark theme-->
+        <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Light={StaticResource LightBackground},
+                Dark={StaticResource DarkBackground}}" />
+        </Style>
+        <Style TargetType="Label"
+               ApplyToDerivedTypes="True">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightMonoColor},
+                Dark={StaticResource DarkMonoColor}}" />
+        </Style>
+        <Style TargetType="Entry"
+               ApplyToDerivedTypes="True">
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightMonoColor},
+                Dark={StaticResource DarkMonoColor}}" />
+            <Setter Property="PlaceholderColor"
+                    Value="{AppThemeBinding Light={StaticResource LightPlaceholderText},
+                Dark={StaticResource DarkPlaceholderText}}" />
+        </Style>
+        
+        <!--Styles for search-->
+        <Style TargetType="SearchBar"
+               ApplyToDerivedTypes="True">
+            <Setter Property="CancelButtonColor"
+                    Value="{AppThemeBinding Light={StaticResource LightMonoColor},
+                Dark={StaticResource DarkMonoColor}}" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightMonoColor},
+                Dark={StaticResource DarkMonoColor}}" />
+            <Setter Property="PlaceholderColor"
+                    Value="{AppThemeBinding Light=LightGray,
+                Dark=LightGray}" />
+        </Style>
+
+        <!--Define colors for navigation bar-->
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor"
+                    Value="{AppThemeBinding Light={StaticResource LightNavBarBackground},
+                Dark={StaticResource DarkNavBarBackground}}" />
+            <Setter Property="BarTextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightNavBarText},
+                Dark={StaticResource DarkNavBarText}}" />
+        </Style>
+
+        <!--Headings-->
+        <Style x:Key="Headings"
+               TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="Large" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor},
+                 Dark={StaticResource DarkSecondaryColor}}" />
+        </Style>
+
+        <!--Form labels-->
+        <Style x:Key="MediumLabels"
+               TargetType="Label">
+            <Setter Property="FontSize"
+                    Value="Body" />
+            <Setter Property="FontAttributes"
+                    Value="Bold" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightMonoColor},
+                 Dark={StaticResource DarkMonoColor}}" />
+        </Style>
+
+        <!--Default buttons-->
+        <Style TargetType="Button">
+            <Setter Property="Margin"
+                    Value="5" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightPrimaryColor}, 
+                        Dark={StaticResource DarkPrimaryColor}}" />
+            <Setter Property="BackgroundColor"
+                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor},
+                        Dark={StaticResource DarkSecondaryColor}}" />
+            <Setter Property="CornerRadius"
+                    Value="5" />
+        </Style>
+        
+        <!--Styles for the results page-->
+        <Style TargetType="Label"
+               x:Key="ResultWord">
+            <Setter Property="FontSize"
+                    Value="Title" />
+        </Style>
+        <Style TargetType="Label"
+               x:Key="ResultDefinition">
+            <Setter Property="FontSize"
+                    Value="Subtitle" />
+            <Setter Property="Margin"
+                    Value="15,0,0,15" />
+        </Style>
+        
+        <!--Styles for the details page-->
+        <Style TargetType="Label"
+               x:Key="DetailsWord">
+            <Setter Property="FontSize"
+                    Value="36" />
+            <Setter Property="TextColor"
+                    Value="{AppThemeBinding Light={StaticResource LightSecondaryColor},
+                 Dark={StaticResource DarkSecondaryColor}}" />
+        </Style>
+        <Style TargetType="Label"
+               x:Key="DetailsDefinition">
+            <Setter Property="Margin"
+                    Value="20,0,0,0" />
+            <Setter Property="FontSize"
+                    Value="24" />
+        </Style>
     </Application.Resources>
 </Application>

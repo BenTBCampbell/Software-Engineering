@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Fictionary.Models;
+using Fictionary.Services;
+using Fictionary.Views;
+using System.Diagnostics;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Fictionary
 {
@@ -9,20 +11,28 @@ namespace Fictionary
         public App()
         {
             InitializeComponent();
+            Boostrapper.Initialize();
 
-            MainPage = new MainPage();
+            // Start the application
+            // Also, update the top bar color
+            var navPage = new NavigationPage(Resolver.Resolve<HomeView>());
+            DependencyService.Get<IStatusBarService>().SetStatusBarColor(navPage.BarBackgroundColor);
+            MainPage = navPage;
         }
 
         protected override void OnStart()
         {
+            MySqlManager.InitializeConnection();
         }
 
         protected override void OnSleep()
         {
+            MySqlManager.CloseConnection();
         }
 
         protected override void OnResume()
         {
+            MySqlManager.InitializeConnection();
         }
     }
 }

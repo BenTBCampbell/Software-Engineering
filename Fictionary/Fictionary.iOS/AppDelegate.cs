@@ -5,6 +5,8 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+using PCLAppConfig;
+
 namespace Fictionary.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -23,7 +25,12 @@ namespace Fictionary.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+            
+            // load App.config
+            // ConfigurationManager.Initialise(PCLAppConfig.FileSystemStream.PortableStream.Current);
+            
             LoadApplication(new App());
+            
 
             return base.FinishedLaunching(app, options);
         }

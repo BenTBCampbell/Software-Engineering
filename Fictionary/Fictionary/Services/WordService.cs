@@ -64,7 +64,7 @@ namespace Fictionary.Services
                 String.IsNullOrEmpty(word) || String.IsNullOrEmpty(definition)
 
                 // or it contains bad words...
-                || ! Services.Filter.IsClean(word) || ! Services.Filter.IsClean(definition)
+                || ! Services.FilterService.IsClean(word) || ! Services.FilterService.IsClean(definition)
                 )
             {
                 // don't add it
@@ -153,7 +153,7 @@ namespace Fictionary.Services
         public static List<Word> SearchForWords(string searchText)
         {
             searchText = searchText.ToLower();
-            List<Word> allWords = new List<Word>();
+            List<Word> allWords = new();
 
             // get all the words in the database that contain searchText
             var result = MySqlManager.GetResults(

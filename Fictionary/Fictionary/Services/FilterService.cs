@@ -6,7 +6,7 @@ namespace Fictionary.Services
     /// <summary>
     /// Contains functions to remove vulgar words from database
     /// </summary>
-    public static class Filter
+    public static class FilterService
     {
         /// <summary>
         /// The list of words to remove
@@ -53,35 +53,6 @@ namespace Fictionary.Services
 
             // If we've reached this point, the message is clean
             return true;
-        }
-
-        /// <summary>
-        /// Replaces instances of bad words with a "?".
-        /// </summary>
-        /// <param name="str">The string to remove bad words from</param>
-        public static string RemoveBadWords(string str)
-        {
-            StringBuilder builder = new(str.ToLower());
-
-            // Filter out leet
-            builder.Replace("4", "a");
-            builder.Replace("8", "b");
-            builder.Replace("3", "e");
-            builder.Replace("9", "g");
-            builder.Replace("1", "l");
-            builder.Replace("0", "o");
-            builder.Replace("2", "r");
-            builder.Replace("5", "s");
-            builder.Replace("7", "t");
-
-            // Now remove bad words
-            foreach (string item in blacklist)
-            {
-                builder.Replace(item, "?");
-            }
-
-            // Return the clean message
-            return builder.ToString();
         }
     }
 }
